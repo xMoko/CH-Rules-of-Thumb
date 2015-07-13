@@ -28,7 +28,7 @@ public final class RulesOfThumb extends javax.swing.JFrame {
         jLabMorgulis.setEnabled(false);
         jFormTxtMorgulisLevel.setEnabled(false);
         setLocationRelativeTo(null);
-        setSize(570, 545);
+        setSize(1020, 545);
         setIconImage(new ImageIcon(getClass().getResource("icon.png")).getImage());
         showAncientLevels();
     }
@@ -179,6 +179,8 @@ public final class RulesOfThumb extends javax.swing.JFrame {
         jButShowCredits = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JToolBar.Separator();
         jButShowGildsROT = new javax.swing.JButton();
+        jLabCHImage = new javax.swing.JLabel();
+        jLabAncientsImage = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Clicker Heroes Rules of Thumb - app v1.4");
@@ -470,11 +472,21 @@ public final class RulesOfThumb extends javax.swing.JFrame {
         });
         jToolBar1.add(jButShowGildsROT);
 
+        jLabCHImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/header.jpg"))); // NOI18N
+
+        jLabAncientsImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/ancients.png"))); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelRulesOfThumb, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanelRulesOfThumb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabAncientsImage)
+                    .addComponent(jLabCHImage, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -482,7 +494,14 @@ public final class RulesOfThumb extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanelRulesOfThumb, javax.swing.GroupLayout.PREFERRED_SIZE, 476, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanelRulesOfThumb, javax.swing.GroupLayout.PREFERRED_SIZE, 476, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(jLabCHImage)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabAncientsImage)
+                        .addContainerGap())))
         );
 
         pack();
@@ -626,8 +645,10 @@ public final class RulesOfThumb extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField jFormTxtPlutoLevel;
     private javax.swing.JFormattedTextField jFormTxtSolomonLevel;
     private javax.swing.JFormattedTextField jFormTxtUnspentSouls;
+    private javax.swing.JLabel jLabAncientsImage;
     private javax.swing.JLabel jLabArgaiv;
     private javax.swing.JLabel jLabBhaal;
+    private javax.swing.JLabel jLabCHImage;
     private javax.swing.JLabel jLabFragsworth;
     private javax.swing.JLabel jLabGameState;
     private javax.swing.JLabel jLabIrisLate;
