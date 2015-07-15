@@ -203,9 +203,7 @@ public final class RulesOfThumb extends javax.swing.JFrame {
         jSpinnerOptZone = new javax.swing.JSpinner();
         jChkBoxHaveMorgulis = new javax.swing.JCheckBox();
         jPanelTotalHSCosts = new javax.swing.JPanel();
-        jLabTargetSiyaLvl = new javax.swing.JLabel();
         jSpinnerTargetSiyaLvl = new javax.swing.JSpinner();
-        jButCalculateTargerSiyaCost = new javax.swing.JButton();
         jSpinnerSiyaCurrentLvl = new javax.swing.JSpinner();
         jLabSiyaCurrentLvl = new javax.swing.JLabel();
         jLabArgaivCurrentLvl = new javax.swing.JLabel();
@@ -214,6 +212,30 @@ public final class RulesOfThumb extends javax.swing.JFrame {
         jLabClickCurrentLvl = new javax.swing.JLabel();
         jLabSolomonCurrentLvl = new javax.swing.JLabel();
         jLabIrisCurrentLvl = new javax.swing.JLabel();
+        jSpinnerArgaivCurrentLvl = new javax.swing.JSpinner();
+        jSpinnerMorgulisCurrentLvl = new javax.swing.JSpinner();
+        jSpinnerGoldCurrentLvl = new javax.swing.JSpinner();
+        jSpinnerClickCurrentLvl = new javax.swing.JSpinner();
+        jSpinnerSolomonCurrentLvl = new javax.swing.JSpinner();
+        jSpinnerIrisCurrentLvl = new javax.swing.JSpinner();
+        jLabCurrentLvlColumn = new javax.swing.JLabel();
+        jLabSiyaToCurrentLvl = new javax.swing.JLabel();
+        jLabTargetLvlColumn = new javax.swing.JLabel();
+        jFormTxtSiyaHSCost = new javax.swing.JFormattedTextField();
+        jLabTotalHSCost = new javax.swing.JLabel();
+        jLabToHSCost = new javax.swing.JLabel();
+        jLabSiyaToCurrentLvl1 = new javax.swing.JLabel();
+        jLabSiyaToCurrentLvl2 = new javax.swing.JLabel();
+        jLabSiyaToCurrentLvl3 = new javax.swing.JLabel();
+        jLabSiyaToCurrentLvl4 = new javax.swing.JLabel();
+        jLabSiyaToCurrentLvl5 = new javax.swing.JLabel();
+        jLabSiyaToCurrentLvl6 = new javax.swing.JLabel();
+        jLabToHSCost1 = new javax.swing.JLabel();
+        jLabToHSCost2 = new javax.swing.JLabel();
+        jLabToHSCost3 = new javax.swing.JLabel();
+        jLabToHSCost4 = new javax.swing.JLabel();
+        jLabToHSCost5 = new javax.swing.JLabel();
+        jLabToHSCost6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Clicker Heroes Rules of Thumb - app v1.5");
@@ -261,7 +283,6 @@ public final class RulesOfThumb extends javax.swing.JFrame {
             public void stateChanged(ChangeEvent e){
                 showAncientLevels();
             }
-
         });
         jSpinnerSiyaLvl.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(1), null, Integer.valueOf(1)));
 
@@ -495,42 +516,71 @@ public final class RulesOfThumb extends javax.swing.JFrame {
 
         jPanelTotalHSCosts.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
-        jLabTargetSiyaLvl.setText("Target Siya");
-
         jSpinnerTargetSiyaLvl.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(1), null, Integer.valueOf(1)));
 
-        jButCalculateTargerSiyaCost.setText("Calculate");
-        jButCalculateTargerSiyaCost.setToolTipText("Calculates total Hero Soul cost from current Siya level to target Siya level");
-        jButCalculateTargerSiyaCost.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                calculateTargetSiyaHSCost(evt);
-            }
-        });
-
-        jSpinnerSiyaLvl.addChangeListener(new ChangeListener(){
-            @Override
-            public void stateChanged(ChangeEvent e){
-                showAncientLevels();
-            }
-
-        });
         jSpinnerSiyaCurrentLvl.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(1), null, Integer.valueOf(1)));
 
-        jLabSiyaCurrentLvl.setText("Siyalatas Level");
+        jLabSiyaCurrentLvl.setText("Siyalatas");
 
-        jLabArgaivCurrentLvl.setText("Argaiv Level");
+        jLabArgaivCurrentLvl.setText("Argaiv");
 
-        jLabMorgulisCurrentLvl.setText("Morgulis Level");
+        jLabMorgulisCurrentLvl.setText("Morgulis");
 
-        jLabGoldLevel.setText("Gold Level");
+        jLabGoldLevel.setText("Gold");
         jLabGoldLevel.setToolTipText("The calculation is the same for Libertas, Mammon and Mimzee");
 
-        jLabClickCurrentLvl.setText("Click Level");
+        jLabClickCurrentLvl.setText("Click");
         jLabClickCurrentLvl.setToolTipText("The calculation is the same for Fragsworth, Pluto and Bhaal");
 
-        jLabSolomonCurrentLvl.setText("Solomon Level");
+        jLabSolomonCurrentLvl.setText("Solomon");
 
-        jLabIrisCurrentLvl.setText("Iris Level");
+        jLabIrisCurrentLvl.setText("Iris");
+
+        jSpinnerArgaivCurrentLvl.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(1), null, Integer.valueOf(1)));
+
+        jSpinnerMorgulisCurrentLvl.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(1), null, Integer.valueOf(1)));
+
+        jSpinnerGoldCurrentLvl.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(1), null, Integer.valueOf(1)));
+
+        jSpinnerClickCurrentLvl.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(1), null, Integer.valueOf(1)));
+
+        jSpinnerSolomonCurrentLvl.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(1), null, Integer.valueOf(1)));
+
+        jSpinnerIrisCurrentLvl.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(1), null, Integer.valueOf(1)));
+
+        jLabCurrentLvlColumn.setText("Current level");
+
+        jLabSiyaToCurrentLvl.setText(">>>");
+
+        jLabTargetLvlColumn.setText("Target level");
+
+        jLabTotalHSCost.setText("Total HS cost");
+
+        jLabToHSCost.setText(">>>");
+
+        jLabSiyaToCurrentLvl1.setText(">>>");
+
+        jLabSiyaToCurrentLvl2.setText(">>>");
+
+        jLabSiyaToCurrentLvl3.setText(">>>");
+
+        jLabSiyaToCurrentLvl4.setText(">>>");
+
+        jLabSiyaToCurrentLvl5.setText(">>>");
+
+        jLabSiyaToCurrentLvl6.setText(">>>");
+
+        jLabToHSCost1.setText(">>>");
+
+        jLabToHSCost2.setText(">>>");
+
+        jLabToHSCost3.setText(">>>");
+
+        jLabToHSCost4.setText(">>>");
+
+        jLabToHSCost5.setText(">>>");
+
+        jLabToHSCost6.setText(">>>");
 
         javax.swing.GroupLayout jPanelTotalHSCostsLayout = new javax.swing.GroupLayout(jPanelTotalHSCosts);
         jPanelTotalHSCosts.setLayout(jPanelTotalHSCostsLayout);
@@ -539,50 +589,106 @@ public final class RulesOfThumb extends javax.swing.JFrame {
             .addGroup(jPanelTotalHSCostsLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelTotalHSCostsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabSiyaCurrentLvl)
+                    .addComponent(jLabArgaivCurrentLvl)
+                    .addComponent(jLabMorgulisCurrentLvl)
+                    .addComponent(jLabGoldLevel)
+                    .addComponent(jLabClickCurrentLvl)
+                    .addComponent(jLabSolomonCurrentLvl)
+                    .addComponent(jLabIrisCurrentLvl))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanelTotalHSCostsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelTotalHSCostsLayout.createSequentialGroup()
-                        .addComponent(jLabSiyaCurrentLvl)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jSpinnerSiyaCurrentLvl, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addComponent(jLabTargetSiyaLvl)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jSpinnerTargetSiyaLvl, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButCalculateTargerSiyaCost))
-                    .addGroup(jPanelTotalHSCostsLayout.createSequentialGroup()
+                        .addGroup(jPanelTotalHSCostsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jSpinnerSiyaCurrentLvl, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
+                            .addComponent(jSpinnerArgaivCurrentLvl)
+                            .addComponent(jSpinnerMorgulisCurrentLvl)
+                            .addComponent(jSpinnerGoldCurrentLvl)
+                            .addComponent(jSpinnerClickCurrentLvl)
+                            .addComponent(jSpinnerSolomonCurrentLvl)
+                            .addComponent(jSpinnerIrisCurrentLvl))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanelTotalHSCostsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabArgaivCurrentLvl)
-                            .addComponent(jLabMorgulisCurrentLvl)
-                            .addComponent(jLabGoldLevel)
-                            .addComponent(jLabClickCurrentLvl)
-                            .addComponent(jLabSolomonCurrentLvl)
-                            .addComponent(jLabIrisCurrentLvl))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                            .addComponent(jLabSiyaToCurrentLvl)
+                            .addComponent(jLabSiyaToCurrentLvl1)
+                            .addComponent(jLabSiyaToCurrentLvl2)
+                            .addComponent(jLabSiyaToCurrentLvl3)
+                            .addComponent(jLabSiyaToCurrentLvl4)
+                            .addComponent(jLabSiyaToCurrentLvl5)
+                            .addComponent(jLabSiyaToCurrentLvl6)))
+                    .addComponent(jLabCurrentLvlColumn))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelTotalHSCostsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabTargetLvlColumn)
+                    .addGroup(jPanelTotalHSCostsLayout.createSequentialGroup()
+                        .addComponent(jSpinnerTargetSiyaLvl, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanelTotalHSCostsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabToHSCost1)
+                            .addComponent(jLabToHSCost)
+                            .addComponent(jLabToHSCost2)
+                            .addComponent(jLabToHSCost3)
+                            .addComponent(jLabToHSCost4)
+                            .addComponent(jLabToHSCost5)
+                            .addComponent(jLabToHSCost6))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelTotalHSCostsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabTotalHSCost)
+                    .addComponent(jFormTxtSiyaHSCost, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
         jPanelTotalHSCostsLayout.setVerticalGroup(
             jPanelTotalHSCostsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelTotalHSCostsLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanelTotalHSCostsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButCalculateTargerSiyaCost)
-                    .addComponent(jLabTargetSiyaLvl)
+                    .addComponent(jLabCurrentLvlColumn)
+                    .addComponent(jLabTargetLvlColumn)
+                    .addComponent(jLabTotalHSCost))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelTotalHSCostsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jSpinnerTargetSiyaLvl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabSiyaCurrentLvl)
-                    .addComponent(jSpinnerSiyaCurrentLvl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jSpinnerSiyaCurrentLvl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabSiyaToCurrentLvl)
+                    .addComponent(jFormTxtSiyaHSCost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabToHSCost))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabArgaivCurrentLvl)
+                .addGroup(jPanelTotalHSCostsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabArgaivCurrentLvl)
+                    .addComponent(jSpinnerArgaivCurrentLvl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabSiyaToCurrentLvl1)
+                    .addComponent(jLabToHSCost1))
                 .addGap(18, 18, 18)
-                .addComponent(jLabMorgulisCurrentLvl)
+                .addGroup(jPanelTotalHSCostsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabMorgulisCurrentLvl)
+                    .addComponent(jSpinnerMorgulisCurrentLvl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabSiyaToCurrentLvl2)
+                    .addComponent(jLabToHSCost2))
                 .addGap(18, 18, 18)
-                .addComponent(jLabGoldLevel)
+                .addGroup(jPanelTotalHSCostsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabGoldLevel)
+                    .addComponent(jSpinnerGoldCurrentLvl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabSiyaToCurrentLvl3)
+                    .addComponent(jLabToHSCost3))
                 .addGap(18, 18, 18)
-                .addComponent(jLabClickCurrentLvl)
+                .addGroup(jPanelTotalHSCostsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabClickCurrentLvl)
+                    .addComponent(jSpinnerClickCurrentLvl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabSiyaToCurrentLvl4)
+                    .addComponent(jLabToHSCost4))
                 .addGap(18, 18, 18)
-                .addComponent(jLabSolomonCurrentLvl)
+                .addGroup(jPanelTotalHSCostsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabSolomonCurrentLvl)
+                    .addComponent(jSpinnerSolomonCurrentLvl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabSiyaToCurrentLvl5)
+                    .addComponent(jLabToHSCost5))
                 .addGap(18, 18, 18)
-                .addComponent(jLabIrisCurrentLvl)
-                .addContainerGap(216, Short.MAX_VALUE))
+                .addGroup(jPanelTotalHSCostsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabIrisCurrentLvl)
+                    .addComponent(jSpinnerIrisCurrentLvl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabSiyaToCurrentLvl6)
+                    .addComponent(jLabToHSCost6))
+                .addContainerGap(128, Short.MAX_VALUE))
         );
 
         jTabRulesOfThumb.addTab("Ancient target level HS total cost", jPanelTotalHSCosts);
@@ -686,24 +792,6 @@ public final class RulesOfThumb extends javax.swing.JFrame {
                 "Gilds and Regilds", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_showROTGildRegild
 
-    // Get total HS cost to level Siyalatas from current level to target level
-    private void calculateTargetSiyaHSCost(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calculateTargetSiyaHSCost
-        int siyaLvl = (int) jSpinnerSiyaLvl.getValue();
-        int targetSiya = (int) jSpinnerTargetSiyaLvl.getValue();
-        if (targetSiya > siyaLvl) {
-            int targetSiyaCost = 0;
-            for (int x = siyaLvl; x < targetSiya; x++) {
-                targetSiyaCost += (x + 1);
-            }
-            JOptionPane.showMessageDialog(this, "To level Siyalatas from level " + jSpinnerSiyaLvl.getValue() + " to level "
-                    + jSpinnerTargetSiyaLvl.getValue() + ", you need " + targetSiyaCost + " Hero Souls.", "Total HS cost", JOptionPane.INFORMATION_MESSAGE);
-        }else{
-            JOptionPane.showMessageDialog(this, "Target Siyalatas level cant be lower nor equal than current Siyalatas level.", "Bad input", JOptionPane.WARNING_MESSAGE);
-        }
-        
-                
-    }//GEN-LAST:event_calculateTargetSiyaHSCost
-
     /**
      * @param args the command line arguments
      */
@@ -740,7 +828,6 @@ public final class RulesOfThumb extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButCalculateTargerSiyaCost;
     private javax.swing.JButton jButShowCredits;
     private javax.swing.JButton jButShowGildsROT;
     private javax.swing.JCheckBox jChkBoxHaveMorgulis;
@@ -756,6 +843,7 @@ public final class RulesOfThumb extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField jFormTxtMimzeeLevel;
     private javax.swing.JFormattedTextField jFormTxtMorgulisLevel;
     private javax.swing.JFormattedTextField jFormTxtPlutoLevel;
+    private javax.swing.JFormattedTextField jFormTxtSiyaHSCost;
     private javax.swing.JFormattedTextField jFormTxtSolomonLevel;
     private javax.swing.JFormattedTextField jFormTxtUnspentSouls;
     private javax.swing.JLabel jLabAncientsImage;
@@ -764,6 +852,7 @@ public final class RulesOfThumb extends javax.swing.JFrame {
     private javax.swing.JLabel jLabBhaal;
     private javax.swing.JLabel jLabCHImage;
     private javax.swing.JLabel jLabClickCurrentLvl;
+    private javax.swing.JLabel jLabCurrentLvlColumn;
     private javax.swing.JLabel jLabFragsworth;
     private javax.swing.JLabel jLabGameState;
     private javax.swing.JLabel jLabGoldLevel;
@@ -780,17 +869,38 @@ public final class RulesOfThumb extends javax.swing.JFrame {
     private javax.swing.JLabel jLabPluto;
     private javax.swing.JLabel jLabSiyaCurrentLvl;
     private javax.swing.JLabel jLabSiyaLvl;
+    private javax.swing.JLabel jLabSiyaToCurrentLvl;
+    private javax.swing.JLabel jLabSiyaToCurrentLvl1;
+    private javax.swing.JLabel jLabSiyaToCurrentLvl2;
+    private javax.swing.JLabel jLabSiyaToCurrentLvl3;
+    private javax.swing.JLabel jLabSiyaToCurrentLvl4;
+    private javax.swing.JLabel jLabSiyaToCurrentLvl5;
+    private javax.swing.JLabel jLabSiyaToCurrentLvl6;
     private javax.swing.JLabel jLabSolomon;
     private javax.swing.JLabel jLabSolomonCurrentLvl;
-    private javax.swing.JLabel jLabTargetSiyaLvl;
+    private javax.swing.JLabel jLabTargetLvlColumn;
+    private javax.swing.JLabel jLabToHSCost;
+    private javax.swing.JLabel jLabToHSCost1;
+    private javax.swing.JLabel jLabToHSCost2;
+    private javax.swing.JLabel jLabToHSCost3;
+    private javax.swing.JLabel jLabToHSCost4;
+    private javax.swing.JLabel jLabToHSCost5;
+    private javax.swing.JLabel jLabToHSCost6;
+    private javax.swing.JLabel jLabTotalHSCost;
     private javax.swing.JLabel jLabUnspentSouls;
     private javax.swing.JPanel jPanelRulesOfThumb;
     private javax.swing.JPanel jPanelTotalHSCosts;
     private javax.swing.JToolBar.Separator jSeparator1;
     private javax.swing.JSeparator jSeparatorStart;
+    private javax.swing.JSpinner jSpinnerArgaivCurrentLvl;
+    private javax.swing.JSpinner jSpinnerClickCurrentLvl;
+    private javax.swing.JSpinner jSpinnerGoldCurrentLvl;
+    private javax.swing.JSpinner jSpinnerIrisCurrentLvl;
+    private javax.swing.JSpinner jSpinnerMorgulisCurrentLvl;
     private javax.swing.JSpinner jSpinnerOptZone;
     private javax.swing.JSpinner jSpinnerSiyaCurrentLvl;
     private javax.swing.JSpinner jSpinnerSiyaLvl;
+    private javax.swing.JSpinner jSpinnerSolomonCurrentLvl;
     private javax.swing.JSpinner jSpinnerTargetSiyaLvl;
     private javax.swing.JTabbedPane jTabRulesOfThumb;
     private javax.swing.JToolBar jToolBar1;
