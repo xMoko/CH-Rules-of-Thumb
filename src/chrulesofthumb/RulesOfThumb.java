@@ -9,6 +9,7 @@ import java.awt.Desktop;
 import javax.swing.ImageIcon;
 import javax.swing.JEditorPane;
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.event.HyperlinkEvent;
@@ -28,7 +29,7 @@ public final class RulesOfThumb extends javax.swing.JFrame {
         jLabMorgulis.setEnabled(false);
         jFormTxtMorgulisLevel.setEnabled(false);
         setLocationRelativeTo(null);
-        setSize(1020, 545);
+        setSize(1010, 565);
         setIconImage(new ImageIcon(getClass().getResource("icon.png")).getImage());
         showAncientLevels();
     }
@@ -137,6 +138,13 @@ public final class RulesOfThumb extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jToolBar1 = new javax.swing.JToolBar();
+        jButShowCredits = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JToolBar.Separator();
+        jButShowGildsROT = new javax.swing.JButton();
+        jLabCHImage = new javax.swing.JLabel();
+        jLabAncientsImage = new javax.swing.JLabel();
+        jTabRulesOfThumb = new javax.swing.JTabbedPane();
         jPanelRulesOfThumb = new javax.swing.JPanel();
         jLabSiyaLvl = new javax.swing.JLabel();
         jSpinnerSiyaLvl = new javax.swing.JSpinner();
@@ -175,18 +183,46 @@ public final class RulesOfThumb extends javax.swing.JFrame {
         jButCalculateTargerSiyaCost = new javax.swing.JButton();
         jLabTargetSiya = new javax.swing.JLabel();
         jSpinnerTargetSiya = new javax.swing.JSpinner();
-        jToolBar1 = new javax.swing.JToolBar();
-        jButShowCredits = new javax.swing.JButton();
-        jSeparator1 = new javax.swing.JToolBar.Separator();
-        jButShowGildsROT = new javax.swing.JButton();
-        jLabCHImage = new javax.swing.JLabel();
-        jLabAncientsImage = new javax.swing.JLabel();
+        jPanelTotalHSCosts = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Clicker Heroes Rules of Thumb - app v1.4");
         setResizable(false);
 
+        jToolBar1.setFloatable(false);
+        jToolBar1.setRollover(true);
+
+        jButShowCredits.setText("Credits");
+        jButShowCredits.setFocusable(false);
+        jButShowCredits.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButShowCredits.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButShowCredits.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showCredits(evt);
+            }
+        });
+        jToolBar1.add(jButShowCredits);
+        jToolBar1.add(jSeparator1);
+
+        jButShowGildsROT.setText("ROT: Gilds and Regilding");
+        jButShowGildsROT.setFocusable(false);
+        jButShowGildsROT.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButShowGildsROT.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButShowGildsROT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showROTGildRegild(evt);
+            }
+        });
+        jToolBar1.add(jButShowGildsROT);
+
+        jLabCHImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/header.jpg"))); // NOI18N
+
+        jLabAncientsImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/ancients.png"))); // NOI18N
+
         jPanelRulesOfThumb.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        /*JScrollPane test = new JScrollPane(jPanelRulesOfThumb);
+        test.setViewportView(jPanelRulesOfThumb);
+        jTabRulesOfThumb.addTab("Rules of Thumb", test);*/
 
         jLabSiyaLvl.setText("Siyalatas Level");
 
@@ -446,62 +482,51 @@ public final class RulesOfThumb extends javax.swing.JFrame {
                 .addGap(16, 16, 16))
         );
 
-        jToolBar1.setFloatable(false);
-        jToolBar1.setRollover(true);
+        jTabRulesOfThumb.addTab("Rules of Thumb", jPanelRulesOfThumb);
 
-        jButShowCredits.setText("Credits");
-        jButShowCredits.setFocusable(false);
-        jButShowCredits.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButShowCredits.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButShowCredits.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                showCredits(evt);
-            }
-        });
-        jToolBar1.add(jButShowCredits);
-        jToolBar1.add(jSeparator1);
+        jPanelTotalHSCosts.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
-        jButShowGildsROT.setText("ROT: Gilds and Regilding");
-        jButShowGildsROT.setFocusable(false);
-        jButShowGildsROT.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButShowGildsROT.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButShowGildsROT.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                showROTGildRegild(evt);
-            }
-        });
-        jToolBar1.add(jButShowGildsROT);
+        javax.swing.GroupLayout jPanelTotalHSCostsLayout = new javax.swing.GroupLayout(jPanelTotalHSCosts);
+        jPanelTotalHSCosts.setLayout(jPanelTotalHSCostsLayout);
+        jPanelTotalHSCostsLayout.setHorizontalGroup(
+            jPanelTotalHSCostsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 535, Short.MAX_VALUE)
+        );
+        jPanelTotalHSCostsLayout.setVerticalGroup(
+            jPanelTotalHSCostsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 448, Short.MAX_VALUE)
+        );
 
-        jLabCHImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/header.jpg"))); // NOI18N
-
-        jLabAncientsImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/ancients.png"))); // NOI18N
+        jTabRulesOfThumb.addTab("Ancients target HS cost", jPanelTotalHSCosts);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanelRulesOfThumb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTabRulesOfThumb, javax.swing.GroupLayout.PREFERRED_SIZE, 555, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabAncientsImage)
-                    .addComponent(jLabCHImage, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabAncientsImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabCHImage, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGap(18, 18, 18))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanelRulesOfThumb, javax.swing.GroupLayout.PREFERRED_SIZE, 476, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(jLabCHImage)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabAncientsImage)
-                        .addContainerGap())))
+                        .addComponent(jTabRulesOfThumb, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(jLabCHImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabAncientsImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(39, 39, 39)))
+                .addContainerGap())
         );
 
         pack();
@@ -665,11 +690,13 @@ public final class RulesOfThumb extends javax.swing.JFrame {
     private javax.swing.JLabel jLabTargetSiya;
     private javax.swing.JLabel jLabUnspentSouls;
     private javax.swing.JPanel jPanelRulesOfThumb;
+    private javax.swing.JPanel jPanelTotalHSCosts;
     private javax.swing.JToolBar.Separator jSeparator1;
     private javax.swing.JSeparator jSeparatorStart;
     private javax.swing.JSpinner jSpinnerOptZone;
     private javax.swing.JSpinner jSpinnerSiyaLvl;
     private javax.swing.JSpinner jSpinnerTargetSiya;
+    private javax.swing.JTabbedPane jTabRulesOfThumb;
     private javax.swing.JToolBar jToolBar1;
     // End of variables declaration//GEN-END:variables
 }
