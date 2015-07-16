@@ -27,7 +27,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="jToolBar1" max="32767" attributes="0"/>
           <Group type="102" attributes="0">
-              <Component id="jTabRulesOfThumb" pref="555" max="32767" attributes="0"/>
+              <Component id="jTabRulesOfThumb" min="-2" pref="555" max="-2" attributes="0"/>
               <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabAncientsImage" max="32767" attributes="0"/>
@@ -44,17 +44,16 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Component id="jTabRulesOfThumb" pref="0" max="32767" attributes="0"/>
+                      <Component id="jTabRulesOfThumb" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                       <Component id="jLabCHImage" max="32767" attributes="0"/>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Component id="jLabAncientsImage" max="32767" attributes="0"/>
-                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -135,12 +134,12 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jSeparatorStart" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jLabArgaiv" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabMorgulis" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -153,7 +152,7 @@
                                           <Component id="jLabIrisMid" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabIrisLate" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                           <Component id="jFormTxtArgaivLevel" max="32767" attributes="0"/>
                                           <Component id="jFormTxtMorgulisLevel" max="32767" attributes="0"/>
@@ -166,7 +165,7 @@
                                           <Component id="jFormTxtIrisMidLevel" max="32767" attributes="0"/>
                                           <Component id="jFormTxtIrisLateLevel" min="-2" pref="126" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jChkBoxHaveMorgulis" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Group type="102" alignment="0" attributes="0">
@@ -181,9 +180,11 @@
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Component id="jComboBoxGameState" min="-2" pref="223" max="-2" attributes="0"/>
                                                   <Component id="jFormTxtFragsworthLevel" alignment="0" min="-2" pref="126" max="-2" attributes="0"/>
-                                                  <Component id="jFormTxtBhaalLevel" alignment="0" min="-2" pref="126" max="-2" attributes="0"/>
-                                                  <Component id="jFormTxtPlutoLevel" alignment="0" min="-2" pref="126" max="-2" attributes="0"/>
                                                   <Component id="jSpinnerOptZone" alignment="0" min="-2" pref="126" max="-2" attributes="0"/>
+                                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                                      <Component id="jFormTxtBhaalLevel" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="jFormTxtPlutoLevel" alignment="0" pref="126" max="32767" attributes="0"/>
+                                                  </Group>
                                               </Group>
                                           </Group>
                                       </Group>
@@ -194,16 +195,16 @@
                                       <Component id="jSpinnerSiyaLvl" min="-2" pref="126" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="132" max="-2" attributes="0"/>
                           </Group>
                       </Group>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabSiyaLvl" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jSpinnerSiyaLvl" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -524,65 +525,198 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabSiyaCurrentLvl" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabArgaivCurrentLvl" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabMorgulisCurrentLvl" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabGoldLevel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabClickCurrentLvl" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabSolomonCurrentLvl" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabIrisCurrentLvl" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jSpinnerSiyaCurrentLvl" pref="126" max="32767" attributes="0"/>
-                                  <Component id="jSpinnerArgaivCurrentLvl" max="32767" attributes="0"/>
-                                  <Component id="jSpinnerMorgulisCurrentLvl" max="32767" attributes="0"/>
-                                  <Component id="jSpinnerGoldCurrentLvl" max="32767" attributes="0"/>
-                                  <Component id="jSpinnerClickCurrentLvl" max="32767" attributes="0"/>
-                                  <Component id="jSpinnerSolomonCurrentLvl" max="32767" attributes="0"/>
-                                  <Component id="jSpinnerIrisCurrentLvl" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabSiyaToCurrentLvl" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabSiyaToCurrentLvl1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabSiyaToCurrentLvl2" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabSiyaToCurrentLvl3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabSiyaToCurrentLvl4" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabSiyaToCurrentLvl5" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabSiyaToCurrentLvl6" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                      <Component id="jSeparator2" alignment="0" min="-2" pref="506" max="-2" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="1" attributes="0">
+                                              <Group type="102" alignment="1" attributes="0">
+                                                  <Component id="jLabTotalHSCost" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="jLabToTotalHSCost" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="jFormTxtTotalHSCost" min="-2" pref="126" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" attributes="0">
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Group type="102" attributes="0">
+                                                          <Group type="103" groupAlignment="0" attributes="0">
+                                                              <Component id="jLabSiyaCurrentLvl" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                              <Component id="jLabArgaivCurrentLvl" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                              <Component id="jLabMorgulisCurrentLvl" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                              <Component id="jLabLibertasLevel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                              <Component id="jLabMammonCurrentLvl" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                              <Component id="jLabFragsworthCurrentLvl" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                              <Component id="jLabBhaalCurrentLvl" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                              <Component id="jLabPlutoCurrentLvl" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                          </Group>
+                                                          <Group type="103" groupAlignment="0" attributes="0">
+                                                              <Group type="102" attributes="0">
+                                                                  <EmptySpace max="-2" attributes="0"/>
+                                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                                      <Component id="jLabCurrentLvlColumn" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                                      <Group type="102" alignment="0" attributes="0">
+                                                                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                                                              <Component id="jSpinnerMimzeeCurrentLvl" alignment="0" max="32767" attributes="0"/>
+                                                                              <Component id="jSpinnerSiyaCurrentLvl" alignment="0" pref="126" max="32767" attributes="0"/>
+                                                                              <Component id="jSpinnerArgaivCurrentLvl" alignment="0" max="32767" attributes="0"/>
+                                                                              <Component id="jSpinnerMorgulisCurrentLvl" alignment="0" max="32767" attributes="0"/>
+                                                                              <Component id="jSpinnerLibertasCurrentLvl" alignment="0" max="32767" attributes="0"/>
+                                                                              <Component id="jSpinnerMammonCurrentLvl" alignment="0" max="32767" attributes="0"/>
+                                                                          </Group>
+                                                                          <EmptySpace max="-2" attributes="0"/>
+                                                                          <Group type="103" groupAlignment="0" attributes="0">
+                                                                              <Component id="jLabSiyaToTargetLvl" min="-2" max="-2" attributes="0"/>
+                                                                              <Component id="jLabArgaivToTargetLvl" min="-2" max="-2" attributes="0"/>
+                                                                              <Component id="jLabMorgulisToTargetLvl" min="-2" max="-2" attributes="0"/>
+                                                                              <Component id="jLabLibertasToTargettLvl" min="-2" max="-2" attributes="0"/>
+                                                                              <Component id="jLabToMammonTargetLvl" min="-2" max="-2" attributes="0"/>
+                                                                              <Component id="jLabMimzeeToTargetLvl" min="-2" max="-2" attributes="0"/>
+                                                                          </Group>
+                                                                      </Group>
+                                                                      <Group type="102" attributes="0">
+                                                                          <Component id="jSpinnerFragsworthCurrentLvl" min="-2" pref="126" max="-2" attributes="0"/>
+                                                                          <EmptySpace max="-2" attributes="0"/>
+                                                                          <Component id="jLabFragsworthToTargetLvl" min="-2" max="-2" attributes="0"/>
+                                                                      </Group>
+                                                                  </Group>
+                                                              </Group>
+                                                              <Group type="102" alignment="0" attributes="0">
+                                                                  <EmptySpace min="-2" pref="138" max="-2" attributes="0"/>
+                                                                  <Component id="jLabPlutoToTargetLvl" min="-2" max="-2" attributes="0"/>
+                                                              </Group>
+                                                          </Group>
+                                                      </Group>
+                                                      <Component id="jLabMimzeeCurrentLvl" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Group type="102" attributes="0">
+                                                          <EmptySpace max="-2" attributes="0"/>
+                                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                              <Group type="102" attributes="0">
+                                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                                      <Component id="jLabTargetLvlColumn" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                                      <Group type="102" alignment="0" attributes="0">
+                                                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                                              <Component id="jSpinnerTargetSiyaLvl" pref="126" max="32767" attributes="0"/>
+                                                                              <Component id="jSpinnerArgaivTargetLvl" max="32767" attributes="0"/>
+                                                                              <Component id="jSpinnerMorgulisTargetLvl" max="32767" attributes="0"/>
+                                                                              <Component id="jSpinnerLibertasTargetLvl" max="32767" attributes="0"/>
+                                                                              <Component id="jSpinnerClickTargetLvl" max="32767" attributes="0"/>
+                                                                          </Group>
+                                                                          <EmptySpace max="-2" attributes="0"/>
+                                                                          <Group type="103" groupAlignment="0" attributes="0">
+                                                                              <Component id="jLabArgaivToHSCost" min="-2" max="-2" attributes="0"/>
+                                                                              <Component id="jLabSiyaToHSCost" min="-2" max="-2" attributes="0"/>
+                                                                              <Component id="jLabMorgulisToHSCost" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                                              <Component id="jLabLibertasToHSCost" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                                              <Component id="jLabMammonToHSCost" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                                          </Group>
+                                                                      </Group>
+                                                                  </Group>
+                                                                  <EmptySpace max="-2" attributes="0"/>
+                                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                                      <Component id="jLabHSCost" min="-2" max="-2" attributes="0"/>
+                                                                      <Component id="jFormTxtSiyaHSCost" pref="126" max="32767" attributes="0"/>
+                                                                      <Component id="jFormTxtArgaivHSCost" alignment="0" max="32767" attributes="0"/>
+                                                                      <Component id="jFormTxtMorgulisHSCost" max="32767" attributes="0"/>
+                                                                      <Component id="jFormTxtLibertasHSCost" max="32767" attributes="0"/>
+                                                                      <Component id="jFormTxtMammonHSCost" max="32767" attributes="0"/>
+                                                                  </Group>
+                                                              </Group>
+                                                              <Group type="102" alignment="0" attributes="0">
+                                                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                                                      <Component id="jSpinnerFragsworthTargetLvl" alignment="0" max="32767" attributes="0"/>
+                                                                      <Component id="jSpinnerMimzeeTargetLvl" alignment="0" pref="126" max="32767" attributes="0"/>
+                                                                  </Group>
+                                                                  <EmptySpace max="-2" attributes="0"/>
+                                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                                      <Group type="102" attributes="0">
+                                                                          <Component id="jLabMimzeeToHSCost" min="-2" max="-2" attributes="0"/>
+                                                                          <EmptySpace max="-2" attributes="0"/>
+                                                                          <Component id="jFormTxtMimzeeHSCost" max="32767" attributes="0"/>
+                                                                      </Group>
+                                                                      <Group type="102" alignment="0" attributes="0">
+                                                                          <Component id="jLabFragsworthToHSCost" min="-2" max="-2" attributes="0"/>
+                                                                          <EmptySpace max="-2" attributes="0"/>
+                                                                          <Component id="jFormTxtFragsworthHSCost" max="32767" attributes="0"/>
+                                                                      </Group>
+                                                                  </Group>
+                                                              </Group>
+                                                          </Group>
+                                                      </Group>
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <EmptySpace min="-2" pref="138" max="-2" attributes="0"/>
+                                                          <Component id="jLabPlutoToHSCost" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace max="-2" attributes="0"/>
+                                                          <Component id="jFormTxtPlutoHSCost" min="-2" pref="126" max="-2" attributes="0"/>
+                                                      </Group>
+                                                  </Group>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabSolomonCurrentLvl" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabIrisCurrentLvl" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="jSpinnerSolomonCurrentLvl" pref="126" max="32767" attributes="0"/>
+                                          <Component id="jSpinnerIrisCurrentLvl" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabSolomonToTargetLvl" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabIrisToTargetLvl" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="jSpinnerSolomonTargetLvl" pref="126" max="32767" attributes="0"/>
+                                          <Component id="jSpinnerIrisTargetLvl" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabSolomonToHSCost" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabIrisToHSCost" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jFormTxtSolomonHSCost" max="32767" attributes="0"/>
+                                          <Component id="jFormTxtIrisHSCost" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
                               </Group>
                           </Group>
-                          <Component id="jLabCurrentLvlColumn" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabTargetLvlColumn" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jSpinnerTargetSiyaLvl" min="-2" pref="126" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabToHSCost1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabToHSCost" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabToHSCost2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabToHSCost3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabToHSCost4" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabToHSCost5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabToHSCost6" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="jSpinnerPlutoTargetLvl" alignment="1" min="-2" pref="126" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="jSpinnerPlutoCurrentLvl" pref="126" max="32767" attributes="0"/>
+                                          <Component id="jSpinnerBhaalCurrentLvl" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jLabBhaalToTargetLvl" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jSpinnerBhaalTargetLvl" min="-2" pref="126" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jLabBhaalToHSCost" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jFormTxtBhaalHSCost" min="-2" pref="126" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabTotalHSCost" min="-2" max="-2" attributes="0"/>
-                          <Component id="jFormTxtSiyaHSCost" min="-2" pref="126" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace pref="23" max="32767" attributes="0"/>
+                      <EmptySpace pref="11" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -592,60 +726,120 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabCurrentLvlColumn" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabTargetLvlColumn" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabTotalHSCost" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabHSCost" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jSpinnerTargetSiyaLvl" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabSiyaCurrentLvl" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jSpinnerSiyaCurrentLvl" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabSiyaToCurrentLvl" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabSiyaToTargetLvl" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jFormTxtSiyaHSCost" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabToHSCost" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabSiyaToHSCost" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabArgaivCurrentLvl" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jSpinnerArgaivCurrentLvl" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabSiyaToCurrentLvl1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabToHSCost1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabArgaivToTargetLvl" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabArgaivToHSCost" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jSpinnerArgaivTargetLvl" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jFormTxtArgaivHSCost" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabMorgulisCurrentLvl" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jSpinnerMorgulisCurrentLvl" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabSiyaToCurrentLvl2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabToHSCost2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabMorgulisToTargetLvl" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabMorgulisToHSCost" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jSpinnerMorgulisTargetLvl" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jFormTxtMorgulisHSCost" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabGoldLevel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jSpinnerGoldCurrentLvl" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabSiyaToCurrentLvl3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabToHSCost3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabLibertasLevel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jSpinnerLibertasCurrentLvl" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabLibertasToTargettLvl" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabLibertasToHSCost" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jSpinnerLibertasTargetLvl" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jFormTxtLibertasHSCost" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabClickCurrentLvl" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jSpinnerClickCurrentLvl" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabSiyaToCurrentLvl4" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabToHSCost4" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabMammonCurrentLvl" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jSpinnerMammonCurrentLvl" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabToMammonTargetLvl" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabMammonToHSCost" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jSpinnerClickTargetLvl" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jFormTxtMammonHSCost" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabSolomonCurrentLvl" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jSpinnerSolomonCurrentLvl" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabSiyaToCurrentLvl5" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabToHSCost5" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabMimzeeCurrentLvl" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jSpinnerMimzeeCurrentLvl" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabMimzeeToTargetLvl" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jSpinnerMimzeeTargetLvl" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabMimzeeToHSCost" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jFormTxtMimzeeHSCost" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabFragsworthCurrentLvl" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jSpinnerFragsworthCurrentLvl" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabFragsworthToTargetLvl" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jSpinnerFragsworthTargetLvl" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabFragsworthToHSCost" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jFormTxtFragsworthHSCost" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabBhaalCurrentLvl" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jSpinnerBhaalCurrentLvl" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabBhaalToTargetLvl" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jSpinnerBhaalTargetLvl" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabBhaalToHSCost" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jFormTxtBhaalHSCost" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabPlutoCurrentLvl" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jSpinnerPlutoCurrentLvl" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabPlutoToTargetLvl" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jSpinnerPlutoTargetLvl" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabPlutoToHSCost" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jFormTxtPlutoHSCost" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                              <Component id="jSpinnerSolomonCurrentLvl" alignment="3" max="32767" attributes="0"/>
+                              <Component id="jLabSolomonCurrentLvl" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabSolomonToTargetLvl" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabSolomonToHSCost" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jSpinnerSolomonTargetLvl" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jFormTxtSolomonHSCost" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabIrisCurrentLvl" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jSpinnerIrisCurrentLvl" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabSiyaToCurrentLvl6" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabToHSCost6" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabIrisToTargetLvl" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabIrisToHSCost" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jSpinnerIrisTargetLvl" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jFormTxtIrisHSCost" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jSpinnerIrisCurrentLvl" alignment="3" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="128" max="32767" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jSeparator2" min="-2" pref="10" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jFormTxtTotalHSCost" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabTotalHSCost" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabToTotalHSCost" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -657,6 +851,9 @@
                   <SpinnerModel initial="1" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
                 </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jSpinnerTargetSiyaLvl.addChangeListener(new ChangeListener(){&#xa;@Override&#xa;public void stateChanged(ChangeEvent e){&#xa;    calculateTargetSiyaHSCost();&#xa;}&#xa;});"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JSpinner" name="jSpinnerSiyaCurrentLvl">
               <Properties>
@@ -680,15 +877,15 @@
                 <Property name="text" type="java.lang.String" value="Morgulis"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabGoldLevel">
+            <Component class="javax.swing.JLabel" name="jLabLibertasLevel">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Gold"/>
+                <Property name="text" type="java.lang.String" value="Libertas"/>
                 <Property name="toolTipText" type="java.lang.String" value="The calculation is the same for Libertas, Mammon and Mimzee"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabClickCurrentLvl">
+            <Component class="javax.swing.JLabel" name="jLabMammonCurrentLvl">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Click"/>
+                <Property name="text" type="java.lang.String" value="Mammon"/>
                 <Property name="toolTipText" type="java.lang.String" value="The calculation is the same for Fragsworth, Pluto and Bhaal"/>
               </Properties>
             </Component>
@@ -716,14 +913,14 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JSpinner" name="jSpinnerGoldCurrentLvl">
+            <Component class="javax.swing.JSpinner" name="jSpinnerLibertasCurrentLvl">
               <Properties>
                 <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
                   <SpinnerModel initial="1" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JSpinner" name="jSpinnerClickCurrentLvl">
+            <Component class="javax.swing.JSpinner" name="jSpinnerMammonCurrentLvl">
               <Properties>
                 <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
                   <SpinnerModel initial="1" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
@@ -749,7 +946,7 @@
                 <Property name="text" type="java.lang.String" value="Current level"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabSiyaToCurrentLvl">
+            <Component class="javax.swing.JLabel" name="jLabSiyaToTargetLvl">
               <Properties>
                 <Property name="text" type="java.lang.String" value="&gt;&gt;&gt;"/>
               </Properties>
@@ -760,75 +957,359 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JFormattedTextField" name="jFormTxtSiyaHSCost">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                  <Format format="#,##0" subtype="-1" type="0"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="4"/>
+                <Property name="text" type="java.lang.String" value="0"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabHSCost">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Hero Souls cost"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabSiyaToHSCost">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&gt;&gt;&gt;"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabArgaivToTargetLvl">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&gt;&gt;&gt;"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabMorgulisToTargetLvl">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&gt;&gt;&gt;"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabLibertasToTargettLvl">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&gt;&gt;&gt;"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabToMammonTargetLvl">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&gt;&gt;&gt;"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabSolomonToTargetLvl">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&gt;&gt;&gt;"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabIrisToTargetLvl">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&gt;&gt;&gt;"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabArgaivToHSCost">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&gt;&gt;&gt;"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabMorgulisToHSCost">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&gt;&gt;&gt;"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabLibertasToHSCost">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&gt;&gt;&gt;"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabMammonToHSCost">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&gt;&gt;&gt;"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabSolomonToHSCost">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&gt;&gt;&gt;"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabIrisToHSCost">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&gt;&gt;&gt;"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JSpinner" name="jSpinnerArgaivTargetLvl">
+              <Properties>
+                <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+                  <SpinnerModel initial="1" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JSpinner" name="jSpinnerMorgulisTargetLvl">
+              <Properties>
+                <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+                  <SpinnerModel initial="1" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JSpinner" name="jSpinnerLibertasTargetLvl">
+              <Properties>
+                <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+                  <SpinnerModel initial="1" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JSpinner" name="jSpinnerClickTargetLvl">
+              <Properties>
+                <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+                  <SpinnerModel initial="1" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JSpinner" name="jSpinnerSolomonTargetLvl">
+              <Properties>
+                <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+                  <SpinnerModel initial="1" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JSpinner" name="jSpinnerIrisTargetLvl">
+              <Properties>
+                <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+                  <SpinnerModel initial="1" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JFormattedTextField" name="jFormTxtArgaivHSCost">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                  <Format format="#,##0" subtype="-1" type="0"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="4"/>
+                <Property name="text" type="java.lang.String" value="0"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JFormattedTextField" name="jFormTxtMorgulisHSCost">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                  <Format format="#,##0" subtype="-1" type="0"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="4"/>
+                <Property name="text" type="java.lang.String" value="0"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JFormattedTextField" name="jFormTxtLibertasHSCost">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                  <Format format="#,##0" subtype="-1" type="0"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="4"/>
+                <Property name="text" type="java.lang.String" value="0"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JFormattedTextField" name="jFormTxtMammonHSCost">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                  <Format format="#,##0" subtype="-1" type="0"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="4"/>
+                <Property name="text" type="java.lang.String" value="0"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JFormattedTextField" name="jFormTxtSolomonHSCost">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                  <Format format="#,##0" subtype="-1" type="0"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="4"/>
+                <Property name="text" type="java.lang.String" value="0"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JFormattedTextField" name="jFormTxtIrisHSCost">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                  <Format format="#,##0" subtype="-1" type="0"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="4"/>
+                <Property name="text" type="java.lang.String" value="0"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabTotalHSCost">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Total HS cost"/>
+                <Property name="text" type="java.lang.String" value="Total Hero Souls cost"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabToHSCost">
+            <Component class="javax.swing.JLabel" name="jLabToTotalHSCost">
               <Properties>
                 <Property name="text" type="java.lang.String" value="&gt;&gt;&gt;"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabSiyaToCurrentLvl1">
+            <Component class="javax.swing.JFormattedTextField" name="jFormTxtTotalHSCost">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                  <Format format="#,##0" subtype="-1" type="0"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="4"/>
+                <Property name="text" type="java.lang.String" value="0"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JSeparator" name="jSeparator2">
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabMimzeeCurrentLvl">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Mimzee"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JSpinner" name="jSpinnerMimzeeCurrentLvl">
+              <Properties>
+                <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+                  <SpinnerModel initial="1" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabMimzeeToTargetLvl">
               <Properties>
                 <Property name="text" type="java.lang.String" value="&gt;&gt;&gt;"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabSiyaToCurrentLvl2">
+            <Component class="javax.swing.JSpinner" name="jSpinnerMimzeeTargetLvl">
+              <Properties>
+                <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+                  <SpinnerModel initial="1" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabMimzeeToHSCost">
               <Properties>
                 <Property name="text" type="java.lang.String" value="&gt;&gt;&gt;"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabSiyaToCurrentLvl3">
+            <Component class="javax.swing.JFormattedTextField" name="jFormTxtMimzeeHSCost">
+              <Properties>
+                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                  <Format format="#,##0" subtype="-1" type="0"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="4"/>
+                <Property name="text" type="java.lang.String" value="0"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabFragsworthCurrentLvl">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Fragsworth"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JSpinner" name="jSpinnerFragsworthCurrentLvl">
+              <Properties>
+                <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+                  <SpinnerModel initial="1" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabFragsworthToTargetLvl">
               <Properties>
                 <Property name="text" type="java.lang.String" value="&gt;&gt;&gt;"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabSiyaToCurrentLvl4">
+            <Component class="javax.swing.JSpinner" name="jSpinnerFragsworthTargetLvl">
+              <Properties>
+                <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+                  <SpinnerModel initial="1" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabFragsworthToHSCost">
               <Properties>
                 <Property name="text" type="java.lang.String" value="&gt;&gt;&gt;"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabSiyaToCurrentLvl5">
+            <Component class="javax.swing.JFormattedTextField" name="jFormTxtFragsworthHSCost">
+              <Properties>
+                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                  <Format format="#,##0" subtype="-1" type="0"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="4"/>
+                <Property name="text" type="java.lang.String" value="0"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabBhaalCurrentLvl">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Bhaal"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JSpinner" name="jSpinnerBhaalCurrentLvl">
+              <Properties>
+                <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+                  <SpinnerModel initial="1" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabBhaalToTargetLvl">
               <Properties>
                 <Property name="text" type="java.lang.String" value="&gt;&gt;&gt;"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabSiyaToCurrentLvl6">
+            <Component class="javax.swing.JSpinner" name="jSpinnerBhaalTargetLvl">
+              <Properties>
+                <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+                  <SpinnerModel initial="1" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabBhaalToHSCost">
               <Properties>
                 <Property name="text" type="java.lang.String" value="&gt;&gt;&gt;"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabToHSCost1">
+            <Component class="javax.swing.JFormattedTextField" name="jFormTxtBhaalHSCost">
+              <Properties>
+                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                  <Format format="#,##0" subtype="-1" type="0"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="4"/>
+                <Property name="text" type="java.lang.String" value="0"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabPlutoCurrentLvl">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Pluto"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JSpinner" name="jSpinnerPlutoCurrentLvl">
+              <Properties>
+                <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+                  <SpinnerModel initial="1" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabPlutoToTargetLvl">
               <Properties>
                 <Property name="text" type="java.lang.String" value="&gt;&gt;&gt;"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabToHSCost2">
+            <Component class="javax.swing.JSpinner" name="jSpinnerPlutoTargetLvl">
+              <Properties>
+                <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+                  <SpinnerModel initial="1" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabPlutoToHSCost">
               <Properties>
                 <Property name="text" type="java.lang.String" value="&gt;&gt;&gt;"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabToHSCost3">
+            <Component class="javax.swing.JFormattedTextField" name="jFormTxtPlutoHSCost">
               <Properties>
-                <Property name="text" type="java.lang.String" value="&gt;&gt;&gt;"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabToHSCost4">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="&gt;&gt;&gt;"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabToHSCost5">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="&gt;&gt;&gt;"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabToHSCost6">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="&gt;&gt;&gt;"/>
+                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                  <Format format="#,##0" subtype="-1" type="0"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="4"/>
+                <Property name="text" type="java.lang.String" value="0"/>
               </Properties>
             </Component>
           </SubComponents>
