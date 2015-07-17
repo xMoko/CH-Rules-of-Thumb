@@ -603,11 +603,11 @@
                                                                       <Component id="jLabTargetLvlColumn" alignment="0" min="-2" max="-2" attributes="0"/>
                                                                       <Group type="102" alignment="0" attributes="0">
                                                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                                              <Component id="jSpinnerTargetSiyaLvl" pref="126" max="32767" attributes="0"/>
+                                                                              <Component id="jSpinnerSiyaTargetLvl" pref="126" max="32767" attributes="0"/>
                                                                               <Component id="jSpinnerArgaivTargetLvl" max="32767" attributes="0"/>
                                                                               <Component id="jSpinnerMorgulisTargetLvl" max="32767" attributes="0"/>
                                                                               <Component id="jSpinnerLibertasTargetLvl" max="32767" attributes="0"/>
-                                                                              <Component id="jSpinnerClickTargetLvl" max="32767" attributes="0"/>
+                                                                              <Component id="jSpinnerMammonTargetLvl" max="32767" attributes="0"/>
                                                                           </Group>
                                                                           <EmptySpace max="-2" attributes="0"/>
                                                                           <Group type="103" groupAlignment="0" attributes="0">
@@ -730,7 +730,7 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jSpinnerTargetSiyaLvl" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jSpinnerSiyaTargetLvl" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabSiyaCurrentLvl" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jSpinnerSiyaCurrentLvl" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabSiyaToTargetLvl" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -770,7 +770,7 @@
                           <Component id="jSpinnerMammonCurrentLvl" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabToMammonTargetLvl" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabMammonToHSCost" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jSpinnerClickTargetLvl" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jSpinnerMammonTargetLvl" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jFormTxtMammonHSCost" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -845,14 +845,14 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JSpinner" name="jSpinnerTargetSiyaLvl">
+            <Component class="javax.swing.JSpinner" name="jSpinnerSiyaTargetLvl">
               <Properties>
                 <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
                   <SpinnerModel initial="1" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
                 </Property>
               </Properties>
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jSpinnerTargetSiyaLvl.addChangeListener(new ChangeListener(){&#xa;@Override&#xa;public void stateChanged(ChangeEvent e){&#xa;    calculateTargetSiyaHSCost();&#xa;}&#xa;});"/>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jSpinnerSiyaTargetLvl.addChangeListener(new ChangeListener(){&#xa;@Override&#xa;public void stateChanged(ChangeEvent e){&#xa;    calculateSimilars(&quot;Siyalatas&quot;);&#xa;    calculateTargetHSCost();&#xa;}&#xa;});"/>
               </AuxValues>
             </Component>
             <Component class="javax.swing.JSpinner" name="jSpinnerSiyaCurrentLvl">
@@ -963,7 +963,9 @@
                   <Format format="#,##0" subtype="-1" type="0"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="4"/>
-                <Property name="text" type="java.lang.String" value="0"/>
+                <Property name="value" type="java.lang.Object" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="0" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabHSCost">
@@ -1042,6 +1044,9 @@
                   <SpinnerModel initial="1" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
                 </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jSpinnerArgaivTargetLvl.addChangeListener(new ChangeListener(){&#xa;@Override&#xa;public void stateChanged(ChangeEvent e){&#xa;    calculateSimilars(&quot;Argaiv&quot;);&#xa;    calculateTargetHSCost();&#xa;}&#xa;});"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JSpinner" name="jSpinnerMorgulisTargetLvl">
               <Properties>
@@ -1049,6 +1054,9 @@
                   <SpinnerModel initial="1" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
                 </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jSpinnerMorgulisTargetLvl.addChangeListener(new ChangeListener(){&#xa;@Override&#xa;public void stateChanged(ChangeEvent e){&#xa;    calculateTargetMorgulisHSCost(&quot;Morgulis&quot;);&#xa;    calculateTargetHSCost();&#xa;}&#xa;});"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JSpinner" name="jSpinnerLibertasTargetLvl">
               <Properties>
@@ -1056,13 +1064,19 @@
                   <SpinnerModel initial="1" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
                 </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jSpinnerLibertasTargetLvl.addChangeListener(new ChangeListener(){&#xa;@Override&#xa;public void stateChanged(ChangeEvent e){&#xa;    calculateSimilars(&quot;Libertas&quot;);&#xa;    calculateTargetHSCost();&#xa;}&#xa;});"/>
+              </AuxValues>
             </Component>
-            <Component class="javax.swing.JSpinner" name="jSpinnerClickTargetLvl">
+            <Component class="javax.swing.JSpinner" name="jSpinnerMammonTargetLvl">
               <Properties>
                 <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
                   <SpinnerModel initial="1" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
                 </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jSpinnerMammonTargetLvl.addChangeListener(new ChangeListener(){&#xa;@Override&#xa;public void stateChanged(ChangeEvent e){&#xa;    calculateSimilars(&quot;Mammon&quot;);&#xa;    calculateTargetHSCost();&#xa;}&#xa;});"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JSpinner" name="jSpinnerSolomonTargetLvl">
               <Properties>
@@ -1070,6 +1084,9 @@
                   <SpinnerModel initial="1" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
                 </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jSpinnerSolomonTargetLvl.addChangeListener(new ChangeListener(){&#xa;@Override&#xa;public void stateChanged(ChangeEvent e){&#xa;    calculateTargetSolomonIrisHSCost(&quot;Solomon&quot;);&#xa;    calculateTargetHSCost();&#xa;}&#xa;});"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JSpinner" name="jSpinnerIrisTargetLvl">
               <Properties>
@@ -1077,6 +1094,9 @@
                   <SpinnerModel initial="1" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
                 </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jSpinnerIrisTargetLvl.addChangeListener(new ChangeListener(){&#xa;@Override&#xa;public void stateChanged(ChangeEvent e){&#xa;    calculateTargetSolomonIrisHSCost(&quot;Iris&quot;);&#xa;    calculateTargetHSCost();&#xa;}&#xa;});"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JFormattedTextField" name="jFormTxtArgaivHSCost">
               <Properties>
@@ -1085,7 +1105,9 @@
                   <Format format="#,##0" subtype="-1" type="0"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="4"/>
-                <Property name="text" type="java.lang.String" value="0"/>
+                <Property name="value" type="java.lang.Object" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="0" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JFormattedTextField" name="jFormTxtMorgulisHSCost">
@@ -1095,7 +1117,9 @@
                   <Format format="#,##0" subtype="-1" type="0"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="4"/>
-                <Property name="text" type="java.lang.String" value="0"/>
+                <Property name="value" type="java.lang.Object" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="0" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JFormattedTextField" name="jFormTxtLibertasHSCost">
@@ -1105,7 +1129,9 @@
                   <Format format="#,##0" subtype="-1" type="0"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="4"/>
-                <Property name="text" type="java.lang.String" value="0"/>
+                <Property name="value" type="java.lang.Object" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="0" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JFormattedTextField" name="jFormTxtMammonHSCost">
@@ -1115,7 +1141,9 @@
                   <Format format="#,##0" subtype="-1" type="0"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="4"/>
-                <Property name="text" type="java.lang.String" value="0"/>
+                <Property name="value" type="java.lang.Object" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="0" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JFormattedTextField" name="jFormTxtSolomonHSCost">
@@ -1125,7 +1153,9 @@
                   <Format format="#,##0" subtype="-1" type="0"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="4"/>
-                <Property name="text" type="java.lang.String" value="0"/>
+                <Property name="value" type="java.lang.Object" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="0" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JFormattedTextField" name="jFormTxtIrisHSCost">
@@ -1135,7 +1165,9 @@
                   <Format format="#,##0" subtype="-1" type="0"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="4"/>
-                <Property name="text" type="java.lang.String" value="0"/>
+                <Property name="value" type="java.lang.Object" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="0" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabTotalHSCost">
@@ -1155,7 +1187,9 @@
                   <Format format="#,##0" subtype="-1" type="0"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="4"/>
-                <Property name="text" type="java.lang.String" value="0"/>
+                <Property name="value" type="java.lang.Object" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="0" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JSeparator" name="jSeparator2">
@@ -1183,6 +1217,9 @@
                   <SpinnerModel initial="1" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
                 </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jSpinnerMimzeeTargetLvl.addChangeListener(new ChangeListener(){&#xa;@Override&#xa;public void stateChanged(ChangeEvent e){&#xa;    calculateSimilars(&quot;Mimzee&quot;);&#xa;    calculateTargetHSCost();&#xa;}&#xa;});"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabMimzeeToHSCost">
               <Properties>
@@ -1195,7 +1232,9 @@
                   <Format format="#,##0" subtype="-1" type="0"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="4"/>
-                <Property name="text" type="java.lang.String" value="0"/>
+                <Property name="value" type="java.lang.Object" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="0" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabFragsworthCurrentLvl">
@@ -1221,6 +1260,9 @@
                   <SpinnerModel initial="1" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
                 </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jSpinnerFragsworthTargetLvl.addChangeListener(new ChangeListener(){&#xa;@Override&#xa;public void stateChanged(ChangeEvent e){&#xa;    calculateSimilars(&quot;Fragsworth&quot;);&#xa;    calculateTargetHSCost();&#xa;}&#xa;});"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabFragsworthToHSCost">
               <Properties>
@@ -1233,7 +1275,9 @@
                   <Format format="#,##0" subtype="-1" type="0"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="4"/>
-                <Property name="text" type="java.lang.String" value="0"/>
+                <Property name="value" type="java.lang.Object" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="0" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabBhaalCurrentLvl">
@@ -1259,6 +1303,9 @@
                   <SpinnerModel initial="1" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
                 </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jSpinnerBhaalTargetLvl.addChangeListener(new ChangeListener(){&#xa;@Override&#xa;public void stateChanged(ChangeEvent e){&#xa;    calculateSimilars(&quot;Bhaal&quot;);&#xa;    calculateTargetHSCost();&#xa;}&#xa;});"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabBhaalToHSCost">
               <Properties>
@@ -1271,7 +1318,9 @@
                   <Format format="#,##0" subtype="-1" type="0"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="4"/>
-                <Property name="text" type="java.lang.String" value="0"/>
+                <Property name="value" type="java.lang.Object" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="0" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabPlutoCurrentLvl">
@@ -1297,6 +1346,9 @@
                   <SpinnerModel initial="1" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
                 </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jSpinnerPlutoTargetLvl.addChangeListener(new ChangeListener(){&#xa;@Override&#xa;public void stateChanged(ChangeEvent e){&#xa;    calculateSimilars(&quot;Pluto&quot;);&#xa;    calculateTargetHSCost();&#xa;}&#xa;});"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabPlutoToHSCost">
               <Properties>
@@ -1309,7 +1361,9 @@
                   <Format format="#,##0" subtype="-1" type="0"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="4"/>
-                <Property name="text" type="java.lang.String" value="0"/>
+                <Property name="value" type="java.lang.Object" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="0" type="code"/>
+                </Property>
               </Properties>
             </Component>
           </SubComponents>

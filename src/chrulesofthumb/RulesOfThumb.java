@@ -15,16 +15,23 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+//TODO target costs
+//TODO add calculations roundings
+//TODO save current lvls
+//TODO pass suggested lvls as target lvls
+
 package chrulesofthumb;
 
 import java.awt.Desktop;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JEditorPane;
 import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
+import javax.swing.JSpinner;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.event.HyperlinkEvent;
@@ -40,27 +47,81 @@ public final class RulesOfThumb extends javax.swing.JFrame {
      * Creates new form RulesOfThumb
      */
     
-    List<JFormattedTextField> targetLvlCostsFields = new ArrayList<JFormattedTextField>();
+    HashMap<String, JFormattedTextField> targetLvlCostsFields;
+    
+    HashMap<String, JSpinner> currentLvlSpinnerFields;
+    HashMap<String, JSpinner> targetLvlSpinnerFields;   
+    
+    final String ancientNames[] = new String[]{"Siyalatas", "Argaiv", "Morgulis", 
+                                                "Libertas", "Mammon", "Mimzee",
+                                                "Fragsworth", "Bhaal", "Pluto",
+                                                "Solomon", "Iris"};
     
     public RulesOfThumb() {
+        // Initialize UI components
         initComponents();
         
-        targetLvlCostsFields.add(jFormTxtSiyaHSCost);
-        targetLvlCostsFields.add(jFormTxtArgaivHSCost);
-        targetLvlCostsFields.add(jFormTxtMorgulisHSCost);
-        targetLvlCostsFields.add(jFormTxtLibertasHSCost);
-        targetLvlCostsFields.add(jFormTxtMammonHSCost);
-        targetLvlCostsFields.add(jFormTxtSolomonHSCost);
-        targetLvlCostsFields.add(jFormTxtIrisHSCost);
+        // Initialize HashMap
+        initHashMaps();       
         
         jLabMorgulis.setEnabled(false);
         jFormTxtMorgulisLevel.setEnabled(false);
+        
+        // We set the frame to center
         setLocationRelativeTo(null);
-        setSize(1010, 565);
+        
+        // Frame size
+        setSize(1010, 635);
+        
+        // Frame icon
         setIconImage(new ImageIcon(getClass().getResource("icon.png")).getImage());
+        
+        // We start showing a starting value
         showAncientLevels();
     }
     
+    // Init hashmap
+    private void initHashMaps() {
+        targetLvlCostsFields = new HashMap<>();
+        targetLvlCostsFields.put("Siyalatas", jFormTxtSiyaHSCost);
+        targetLvlCostsFields.put("Argaiv", jFormTxtArgaivHSCost);
+        targetLvlCostsFields.put("Morgulis", jFormTxtMorgulisHSCost);
+        targetLvlCostsFields.put("Libertas", jFormTxtLibertasHSCost);
+        targetLvlCostsFields.put("Mammon", jFormTxtMammonHSCost);
+        targetLvlCostsFields.put("Mimzee", jFormTxtMimzeeHSCost);
+        targetLvlCostsFields.put("Fragsworth", jFormTxtFragsworthHSCost);
+        targetLvlCostsFields.put("Bhaal", jFormTxtBhaalHSCost);
+        targetLvlCostsFields.put("Pluto", jFormTxtPlutoHSCost);
+        targetLvlCostsFields.put("Solomon", jFormTxtSolomonHSCost);
+        targetLvlCostsFields.put("Iris", jFormTxtIrisHSCost);        
+        
+        currentLvlSpinnerFields = new HashMap<>();
+        currentLvlSpinnerFields.put("Siyalatas", jSpinnerSiyaCurrentLvl);
+        currentLvlSpinnerFields.put("Argaiv", jSpinnerArgaivCurrentLvl);
+        currentLvlSpinnerFields.put("Morgulis", jSpinnerMorgulisCurrentLvl);
+        currentLvlSpinnerFields.put("Libertas", jSpinnerLibertasCurrentLvl);
+        currentLvlSpinnerFields.put("Mammon", jSpinnerMammonCurrentLvl);
+        currentLvlSpinnerFields.put("Mimzee", jSpinnerMimzeeCurrentLvl);
+        currentLvlSpinnerFields.put("Fragsworth", jSpinnerFragsworthCurrentLvl);
+        currentLvlSpinnerFields.put("Bhaal", jSpinnerBhaalCurrentLvl);
+        currentLvlSpinnerFields.put("Pluto", jSpinnerPlutoCurrentLvl);
+        currentLvlSpinnerFields.put("Solomon", jSpinnerSolomonCurrentLvl);
+        currentLvlSpinnerFields.put("Iris", jSpinnerIrisCurrentLvl);
+        
+        targetLvlSpinnerFields = new HashMap<>();
+        targetLvlSpinnerFields.put("Siyalatas", jSpinnerSiyaTargetLvl);
+        targetLvlSpinnerFields.put("Argaiv", jSpinnerArgaivTargetLvl);
+        targetLvlSpinnerFields.put("Morgulis", jSpinnerMorgulisTargetLvl);
+        targetLvlSpinnerFields.put("Libertas", jSpinnerLibertasTargetLvl);
+        targetLvlSpinnerFields.put("Mammon", jSpinnerMammonTargetLvl);
+        targetLvlSpinnerFields.put("Mimzee", jSpinnerMimzeeTargetLvl);
+        targetLvlSpinnerFields.put("Fragsworth", jSpinnerFragsworthTargetLvl);
+        targetLvlSpinnerFields.put("Bhaal", jSpinnerBhaalTargetLvl);
+        targetLvlSpinnerFields.put("Pluto", jSpinnerPlutoTargetLvl);
+        targetLvlSpinnerFields.put("Solomon", jSpinnerSolomonTargetLvl);
+        targetLvlSpinnerFields.put("Iris", jSpinnerIrisTargetLvl);       
+    }
+
     /*
         Showing Ancient's levels
     */
@@ -149,6 +210,7 @@ public final class RulesOfThumb extends javax.swing.JFrame {
         return solomonLevel.intValue();
     }
     
+    // Solomon multiplier combobox state changed event, solomon suggested level updated
     public void solomonMultiplierChanged(java.awt.event.ActionEvent evt){
         jFormTxtSolomonLevel.setValue(calculateSolomonLevel());
     }
@@ -170,21 +232,64 @@ public final class RulesOfThumb extends javax.swing.JFrame {
         Calculating ancients target level hero soul cost
     */
     
-    // Siyalatas
-    private void calculateTargetSiyaHSCost() {
-        int siyaLvl = (Integer) jSpinnerSiyaCurrentLvl.getValue();
-        int targetSiya = (Integer) jSpinnerTargetSiyaLvl.getValue();
-        if (targetSiya > siyaLvl) {
-            int targetSiyaCost = 0;
-            for (int x = siyaLvl; x < targetSiya; x++) {
-                targetSiyaCost += x + 1;
+    // Siyalatas, Argaiv, Gold (Libertas, Mammon and Mimzee) and Click (Fragsworth, Bhaal and Pluto) -> same formula for them all
+    private void calculateSimilars(String ancient){
+        int currentLvl = (int) currentLvlSpinnerFields.get(ancient).getValue();
+        int targetLvl = (int) targetLvlSpinnerFields.get(ancient).getValue();        
+           
+        if (targetLvl > currentLvl) {
+            int HSCost = 0; 
+            for (int x = currentLvl; x < targetLvl; x++) {
+                HSCost += x + 1;
             }
-            targetLvlCostsFields.get(0).setValue(targetSiyaCost);
-            /*JOptionPane.showMessageDialog(this, "To level Siyalatas from level " + this.jSpinnerSiyaLvl.getValue() + " to level " + this.jSpinnerTargetSiya
-                    .getValue() + ", you need " + targetSiyaCost + " Hero Souls.", "Total HS cost", 1);*/
+            //targetLvlCostsFields.get(0).setValue(HSCost);
+            targetLvlCostsFields.get(ancient).setValue(HSCost);
         } else {
-            JOptionPane.showMessageDialog(this, "Target Siyalatas level cant be lower nor equal than current Siyalatas level.", "Bad input", 2);
+            targetLvlSpinnerFields.get(ancient).setValue(currentLvl + 1);
+            JOptionPane.showMessageDialog(this, "Target " + ancient + " level cant be lower nor equal than current " + ancient + " level.", "Bad input", JOptionPane.WARNING_MESSAGE);            
         }
+    }  
+    
+    // Morgulis
+    private void calculateTargetMorgulisHSCost(String ancient){
+        int currentLvl = (int) currentLvlSpinnerFields.get(ancient).getValue();
+        int targetLvl = (int) targetLvlSpinnerFields.get(ancient).getValue();   
+        if(targetLvl > currentLvl){
+            int HSCost = 0;
+            for(int x = currentLvl; x < targetLvl; x++){
+                HSCost++;
+            }
+            targetLvlCostsFields.get(ancient).setValue(HSCost);
+        }else{
+            targetLvlSpinnerFields.get(ancient).setValue(currentLvl + 1);
+            JOptionPane.showMessageDialog(this, "Target " + ancient + " level cant be lower nor equal than current " + ancient + " level.", "Bad input", JOptionPane.WARNING_MESSAGE);
+        }
+    }
+    
+    // Solomon and Iris (same formula)
+    private void calculateTargetSolomonIrisHSCost(String ancient){
+        int currentLvl = (int) currentLvlSpinnerFields.get(ancient).getValue();
+        int targetLvl = (int) targetLvlSpinnerFields.get(ancient).getValue();       
+        
+        if(targetLvl > currentLvl){
+            int HSCost = 0;
+            for(int x = currentLvl; x < targetLvl; x++){
+                HSCost += Math.round(Math.pow(x + 1, 1.5));
+            }
+            targetLvlCostsFields.get(ancient).setValue(HSCost);
+        }else{
+            targetLvlSpinnerFields.get(ancient).setValue(currentLvl + 1);
+            JOptionPane.showMessageDialog(this, "Target " + ancient + " level cant be lower nor equal than current " + ancient + " level.", "Bad input", JOptionPane.WARNING_MESSAGE);
+        }
+    }        
+    
+    // All ancients target total HS cost
+    private void calculateTargetHSCost(){
+        int totalTargetHSCost = 0;
+        for(int x = 0; x < targetLvlCostsFields.size(); x++){            
+            totalTargetHSCost += (int) targetLvlCostsFields.get(ancientNames[x]).getValue();
+        }
+        jFormTxtTotalHSCost.setValue(totalTargetHSCost);
     }
     
     
@@ -239,7 +344,7 @@ public final class RulesOfThumb extends javax.swing.JFrame {
         jSpinnerOptZone = new javax.swing.JSpinner();
         jChkBoxHaveMorgulis = new javax.swing.JCheckBox();
         jPanelTotalHSCosts = new javax.swing.JPanel();
-        jSpinnerTargetSiyaLvl = new javax.swing.JSpinner();
+        jSpinnerSiyaTargetLvl = new javax.swing.JSpinner();
         jSpinnerSiyaCurrentLvl = new javax.swing.JSpinner();
         jLabSiyaCurrentLvl = new javax.swing.JLabel();
         jLabArgaivCurrentLvl = new javax.swing.JLabel();
@@ -275,7 +380,7 @@ public final class RulesOfThumb extends javax.swing.JFrame {
         jSpinnerArgaivTargetLvl = new javax.swing.JSpinner();
         jSpinnerMorgulisTargetLvl = new javax.swing.JSpinner();
         jSpinnerLibertasTargetLvl = new javax.swing.JSpinner();
-        jSpinnerClickTargetLvl = new javax.swing.JSpinner();
+        jSpinnerMammonTargetLvl = new javax.swing.JSpinner();
         jSpinnerSolomonTargetLvl = new javax.swing.JSpinner();
         jSpinnerIrisTargetLvl = new javax.swing.JSpinner();
         jFormTxtArgaivHSCost = new javax.swing.JFormattedTextField();
@@ -593,13 +698,14 @@ public final class RulesOfThumb extends javax.swing.JFrame {
 
         jPanelTotalHSCosts.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
-        jSpinnerTargetSiyaLvl.addChangeListener(new ChangeListener(){
+        jSpinnerSiyaTargetLvl.addChangeListener(new ChangeListener(){
             @Override
             public void stateChanged(ChangeEvent e){
-                calculateTargetSiyaHSCost();
+                calculateSimilars("Siyalatas");
+                calculateTargetHSCost();
             }
         });
-        jSpinnerTargetSiyaLvl.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(1), null, Integer.valueOf(1)));
+        jSpinnerSiyaTargetLvl.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(1), null, Integer.valueOf(1)));
 
         jSpinnerSiyaCurrentLvl.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(1), null, Integer.valueOf(1)));
 
@@ -640,7 +746,7 @@ public final class RulesOfThumb extends javax.swing.JFrame {
         jFormTxtSiyaHSCost.setEditable(false);
         jFormTxtSiyaHSCost.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0"))));
         jFormTxtSiyaHSCost.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jFormTxtSiyaHSCost.setText("0");
+        jFormTxtSiyaHSCost.setValue(0);
 
         jLabHSCost.setText("Hero Souls cost");
 
@@ -670,47 +776,89 @@ public final class RulesOfThumb extends javax.swing.JFrame {
 
         jLabIrisToHSCost.setText(">>>");
 
+        jSpinnerArgaivTargetLvl.addChangeListener(new ChangeListener(){
+            @Override
+            public void stateChanged(ChangeEvent e){
+                calculateSimilars("Argaiv");
+                calculateTargetHSCost();
+            }
+        });
         jSpinnerArgaivTargetLvl.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(1), null, Integer.valueOf(1)));
 
+        jSpinnerMorgulisTargetLvl.addChangeListener(new ChangeListener(){
+            @Override
+            public void stateChanged(ChangeEvent e){
+                calculateTargetMorgulisHSCost("Morgulis");
+                calculateTargetHSCost();
+            }
+        });
         jSpinnerMorgulisTargetLvl.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(1), null, Integer.valueOf(1)));
 
+        jSpinnerLibertasTargetLvl.addChangeListener(new ChangeListener(){
+            @Override
+            public void stateChanged(ChangeEvent e){
+                calculateSimilars("Libertas");
+                calculateTargetHSCost();
+            }
+        });
         jSpinnerLibertasTargetLvl.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(1), null, Integer.valueOf(1)));
 
-        jSpinnerClickTargetLvl.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(1), null, Integer.valueOf(1)));
+        jSpinnerMammonTargetLvl.addChangeListener(new ChangeListener(){
+            @Override
+            public void stateChanged(ChangeEvent e){
+                calculateSimilars("Mammon");
+                calculateTargetHSCost();
+            }
+        });
+        jSpinnerMammonTargetLvl.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(1), null, Integer.valueOf(1)));
 
+        jSpinnerSolomonTargetLvl.addChangeListener(new ChangeListener(){
+            @Override
+            public void stateChanged(ChangeEvent e){
+                calculateTargetSolomonIrisHSCost("Solomon");
+                calculateTargetHSCost();
+            }
+        });
         jSpinnerSolomonTargetLvl.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(1), null, Integer.valueOf(1)));
 
+        jSpinnerIrisTargetLvl.addChangeListener(new ChangeListener(){
+            @Override
+            public void stateChanged(ChangeEvent e){
+                calculateTargetSolomonIrisHSCost("Iris");
+                calculateTargetHSCost();
+            }
+        });
         jSpinnerIrisTargetLvl.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(1), null, Integer.valueOf(1)));
 
         jFormTxtArgaivHSCost.setEditable(false);
         jFormTxtArgaivHSCost.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0"))));
         jFormTxtArgaivHSCost.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jFormTxtArgaivHSCost.setText("0");
+        jFormTxtArgaivHSCost.setValue(0);
 
         jFormTxtMorgulisHSCost.setEditable(false);
         jFormTxtMorgulisHSCost.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0"))));
         jFormTxtMorgulisHSCost.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jFormTxtMorgulisHSCost.setText("0");
+        jFormTxtMorgulisHSCost.setValue(0);
 
         jFormTxtLibertasHSCost.setEditable(false);
         jFormTxtLibertasHSCost.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0"))));
         jFormTxtLibertasHSCost.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jFormTxtLibertasHSCost.setText("0");
+        jFormTxtLibertasHSCost.setValue(0);
 
         jFormTxtMammonHSCost.setEditable(false);
         jFormTxtMammonHSCost.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0"))));
         jFormTxtMammonHSCost.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jFormTxtMammonHSCost.setText("0");
+        jFormTxtMammonHSCost.setValue(0);
 
         jFormTxtSolomonHSCost.setEditable(false);
         jFormTxtSolomonHSCost.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0"))));
         jFormTxtSolomonHSCost.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jFormTxtSolomonHSCost.setText("0");
+        jFormTxtSolomonHSCost.setValue(0);
 
         jFormTxtIrisHSCost.setEditable(false);
         jFormTxtIrisHSCost.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0"))));
         jFormTxtIrisHSCost.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jFormTxtIrisHSCost.setText("0");
+        jFormTxtIrisHSCost.setValue(0);
 
         jLabTotalHSCost.setText("Total Hero Souls cost");
 
@@ -719,7 +867,7 @@ public final class RulesOfThumb extends javax.swing.JFrame {
         jFormTxtTotalHSCost.setEditable(false);
         jFormTxtTotalHSCost.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0"))));
         jFormTxtTotalHSCost.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jFormTxtTotalHSCost.setText("0");
+        jFormTxtTotalHSCost.setValue(0);
 
         jLabMimzeeCurrentLvl.setText("Mimzee");
 
@@ -727,13 +875,20 @@ public final class RulesOfThumb extends javax.swing.JFrame {
 
         jLabMimzeeToTargetLvl.setText(">>>");
 
+        jSpinnerMimzeeTargetLvl.addChangeListener(new ChangeListener(){
+            @Override
+            public void stateChanged(ChangeEvent e){
+                calculateSimilars("Mimzee");
+                calculateTargetHSCost();
+            }
+        });
         jSpinnerMimzeeTargetLvl.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(1), null, Integer.valueOf(1)));
 
         jLabMimzeeToHSCost.setText(">>>");
 
         jFormTxtMimzeeHSCost.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0"))));
         jFormTxtMimzeeHSCost.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jFormTxtMimzeeHSCost.setText("0");
+        jFormTxtMimzeeHSCost.setValue(0);
 
         jLabFragsworthCurrentLvl.setText("Fragsworth");
 
@@ -741,13 +896,20 @@ public final class RulesOfThumb extends javax.swing.JFrame {
 
         jLabFragsworthToTargetLvl.setText(">>>");
 
+        jSpinnerFragsworthTargetLvl.addChangeListener(new ChangeListener(){
+            @Override
+            public void stateChanged(ChangeEvent e){
+                calculateSimilars("Fragsworth");
+                calculateTargetHSCost();
+            }
+        });
         jSpinnerFragsworthTargetLvl.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(1), null, Integer.valueOf(1)));
 
         jLabFragsworthToHSCost.setText(">>>");
 
         jFormTxtFragsworthHSCost.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0"))));
         jFormTxtFragsworthHSCost.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jFormTxtFragsworthHSCost.setText("0");
+        jFormTxtFragsworthHSCost.setValue(0);
 
         jLabBhaalCurrentLvl.setText("Bhaal");
 
@@ -755,13 +917,20 @@ public final class RulesOfThumb extends javax.swing.JFrame {
 
         jLabBhaalToTargetLvl.setText(">>>");
 
+        jSpinnerBhaalTargetLvl.addChangeListener(new ChangeListener(){
+            @Override
+            public void stateChanged(ChangeEvent e){
+                calculateSimilars("Bhaal");
+                calculateTargetHSCost();
+            }
+        });
         jSpinnerBhaalTargetLvl.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(1), null, Integer.valueOf(1)));
 
         jLabBhaalToHSCost.setText(">>>");
 
         jFormTxtBhaalHSCost.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0"))));
         jFormTxtBhaalHSCost.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jFormTxtBhaalHSCost.setText("0");
+        jFormTxtBhaalHSCost.setValue(0);
 
         jLabPlutoCurrentLvl.setText("Pluto");
 
@@ -769,13 +938,20 @@ public final class RulesOfThumb extends javax.swing.JFrame {
 
         jLabPlutoToTargetLvl.setText(">>>");
 
+        jSpinnerPlutoTargetLvl.addChangeListener(new ChangeListener(){
+            @Override
+            public void stateChanged(ChangeEvent e){
+                calculateSimilars("Pluto");
+                calculateTargetHSCost();
+            }
+        });
         jSpinnerPlutoTargetLvl.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(1), null, Integer.valueOf(1)));
 
         jLabPlutoToHSCost.setText(">>>");
 
         jFormTxtPlutoHSCost.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0"))));
         jFormTxtPlutoHSCost.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jFormTxtPlutoHSCost.setText("0");
+        jFormTxtPlutoHSCost.setValue(0);
 
         javax.swing.GroupLayout jPanelTotalHSCostsLayout = new javax.swing.GroupLayout(jPanelTotalHSCosts);
         jPanelTotalHSCosts.setLayout(jPanelTotalHSCostsLayout);
@@ -847,11 +1023,11 @@ public final class RulesOfThumb extends javax.swing.JFrame {
                                                                 .addComponent(jLabTargetLvlColumn)
                                                                 .addGroup(jPanelTotalHSCostsLayout.createSequentialGroup()
                                                                     .addGroup(jPanelTotalHSCostsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                                        .addComponent(jSpinnerTargetSiyaLvl, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
+                                                                        .addComponent(jSpinnerSiyaTargetLvl, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
                                                                         .addComponent(jSpinnerArgaivTargetLvl)
                                                                         .addComponent(jSpinnerMorgulisTargetLvl)
                                                                         .addComponent(jSpinnerLibertasTargetLvl)
-                                                                        .addComponent(jSpinnerClickTargetLvl))
+                                                                        .addComponent(jSpinnerMammonTargetLvl))
                                                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                                     .addGroup(jPanelTotalHSCostsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                         .addComponent(jLabArgaivToHSCost)
@@ -938,7 +1114,7 @@ public final class RulesOfThumb extends javax.swing.JFrame {
                     .addComponent(jLabHSCost))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelTotalHSCostsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jSpinnerTargetSiyaLvl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSpinnerSiyaTargetLvl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabSiyaCurrentLvl)
                     .addComponent(jSpinnerSiyaCurrentLvl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabSiyaToTargetLvl)
@@ -974,7 +1150,7 @@ public final class RulesOfThumb extends javax.swing.JFrame {
                     .addComponent(jSpinnerMammonCurrentLvl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabToMammonTargetLvl)
                     .addComponent(jLabMammonToHSCost)
-                    .addComponent(jSpinnerClickTargetLvl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSpinnerMammonTargetLvl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jFormTxtMammonHSCost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanelTotalHSCostsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1266,7 +1442,6 @@ public final class RulesOfThumb extends javax.swing.JFrame {
     private javax.swing.JSpinner jSpinnerArgaivTargetLvl;
     private javax.swing.JSpinner jSpinnerBhaalCurrentLvl;
     private javax.swing.JSpinner jSpinnerBhaalTargetLvl;
-    private javax.swing.JSpinner jSpinnerClickTargetLvl;
     private javax.swing.JSpinner jSpinnerFragsworthCurrentLvl;
     private javax.swing.JSpinner jSpinnerFragsworthTargetLvl;
     private javax.swing.JSpinner jSpinnerIrisCurrentLvl;
@@ -1274,6 +1449,7 @@ public final class RulesOfThumb extends javax.swing.JFrame {
     private javax.swing.JSpinner jSpinnerLibertasCurrentLvl;
     private javax.swing.JSpinner jSpinnerLibertasTargetLvl;
     private javax.swing.JSpinner jSpinnerMammonCurrentLvl;
+    private javax.swing.JSpinner jSpinnerMammonTargetLvl;
     private javax.swing.JSpinner jSpinnerMimzeeCurrentLvl;
     private javax.swing.JSpinner jSpinnerMimzeeTargetLvl;
     private javax.swing.JSpinner jSpinnerMorgulisCurrentLvl;
@@ -1283,9 +1459,9 @@ public final class RulesOfThumb extends javax.swing.JFrame {
     private javax.swing.JSpinner jSpinnerPlutoTargetLvl;
     private javax.swing.JSpinner jSpinnerSiyaCurrentLvl;
     private javax.swing.JSpinner jSpinnerSiyaLvl;
+    private javax.swing.JSpinner jSpinnerSiyaTargetLvl;
     private javax.swing.JSpinner jSpinnerSolomonCurrentLvl;
     private javax.swing.JSpinner jSpinnerSolomonTargetLvl;
-    private javax.swing.JSpinner jSpinnerTargetSiyaLvl;
     private javax.swing.JTabbedPane jTabRulesOfThumb;
     private javax.swing.JToolBar jToolBar1;
     // End of variables declaration//GEN-END:variables
