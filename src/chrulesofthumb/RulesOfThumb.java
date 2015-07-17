@@ -15,22 +15,18 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-//TODO target costs
-//TODO add calculations roundings
 //TODO save current lvls
 //TODO pass suggested lvls as target lvls
 
 package chrulesofthumb;
 
 import java.awt.Desktop;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JEditorPane;
 import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
-import javax.swing.JScrollPane;
+//import javax.swing.JScrollPane;
 import javax.swing.JSpinner;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -154,35 +150,35 @@ public final class RulesOfThumb extends javax.swing.JFrame {
     // Morgulis
     public int calculateMorgulisLevel(){        
         // siya^2 + (43.67 * siya) + 33.58
-        Double morgulisLvl = Math.pow(Integer.parseInt(jSpinnerSiyaLvl.getValue().toString()), 2) + (43.67 * Integer.parseInt(jSpinnerSiyaLvl.getValue().toString())) + 33.58;
-        return morgulisLvl.intValue();               
+        int morgulisLvl = (int) Math.round(Math.pow(Integer.parseInt(jSpinnerSiyaLvl.getValue().toString()), 2) + (43.67 * Integer.parseInt(jSpinnerSiyaLvl.getValue().toString())) + 33.58);
+        return morgulisLvl;               
     }
     
     // Unspent souls
     public int calculateUnspentSouls(){
         // morgulis * 1.1
-        Double unspentSouls = Double.parseDouble(jFormTxtMorgulisLevel.getValue().toString())  * 1.1;
-        return unspentSouls.intValue();
+        int unspentSouls = (int) Math.round(Double.parseDouble(jFormTxtMorgulisLevel.getValue().toString())  * 1.1);
+        return unspentSouls;
     }
     
     // Gold (Libertas, Mammon and Mimzee)
     public int calculateGoldLevels(){
         // siya * 0.93
-        Double goldLevel = Double.parseDouble(jSpinnerSiyaLvl.getValue().toString()) * 0.93;
-        return goldLevel.intValue();
+        int goldLevel = (int) Math.round(Double.parseDouble(jSpinnerSiyaLvl.getValue().toString()) * 0.93);
+        return goldLevel;
     }
     
     // Click (Fragsworth, Bhaal and Pluto)
     public int calculateClickLevels(){
         // siya * 0.5
-        Double clickLevel = Double.parseDouble(jSpinnerSiyaLvl.getValue().toString()) * 0.5;        
-        return clickLevel.intValue();
+        int clickLevel = (int) Math.round(Double.parseDouble(jSpinnerSiyaLvl.getValue().toString()) * 0.5);        
+        return clickLevel;
     }
     
     // Juggernaut
     public int calculateJuggernautLevel(){
-        Double juggernautLevel = calculateClickLevels() * 0.2;
-        return juggernautLevel.intValue();
+        int juggernautLevel = (int) Math.round(calculateClickLevels() * 0.2);
+        return juggernautLevel;
     }     
     
     // Solomon
@@ -205,9 +201,9 @@ public final class RulesOfThumb extends javax.swing.JFrame {
                 break;
         }
         
-        Double solomonLevel = Double.parseDouble(jSpinnerSiyaLvl.getValue().toString()) * multiplier;
+        int solomonLevel = (int) Math.round(Double.parseDouble(jSpinnerSiyaLvl.getValue().toString()) * multiplier);
         
-        return solomonLevel.intValue();
+        return solomonLevel;
     }
     
     // Solomon multiplier combobox state changed event, solomon suggested level updated
@@ -218,8 +214,8 @@ public final class RulesOfThumb extends javax.swing.JFrame {
     // Iris (mid)
     public int calculateIrisMidLevel(){
         // (siya * 0.75) - 300
-        Double irisMid = (Double.parseDouble(jSpinnerSiyaLvl.getValue().toString()) * 0.75) - 300;
-        return irisMid.intValue();
+        int irisMid = (int) Math.round((Double.parseDouble(jSpinnerSiyaLvl.getValue().toString()) * 0.75) - 300);
+        return irisMid;
     }
     
     // Iris (late)
