@@ -21,7 +21,12 @@
 package chrulesofthumb;
 
 import java.awt.Desktop;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.util.HashMap;
+import java.util.Properties;
 import javax.swing.ImageIcon;
 import javax.swing.JEditorPane;
 import javax.swing.JFormattedTextField;
@@ -32,6 +37,7 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.event.HyperlinkEvent;
 import javax.swing.event.HyperlinkListener;
+
 
 /**
  *
@@ -413,6 +419,7 @@ public final class RulesOfThumb extends javax.swing.JFrame {
         jSpinnerPlutoTargetLvl = new javax.swing.JSpinner();
         jLabPlutoToHSCost = new javax.swing.JLabel();
         jFormTxtPlutoHSCost = new javax.swing.JFormattedTextField();
+        jButSaveAncientsData = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Clicker Heroes Rules of Thumb - app v1.5");
@@ -567,53 +574,52 @@ public final class RulesOfThumb extends javax.swing.JFrame {
                     .addComponent(jSeparatorStart)
                     .addGroup(jPanelRulesOfThumbLayout.createSequentialGroup()
                         .addGroup(jPanelRulesOfThumbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabArgaiv)
+                            .addComponent(jLabMorgulis)
+                            .addComponent(jLabUnspentSouls)
+                            .addComponent(jLabLibertas)
+                            .addComponent(jLabMammon)
+                            .addComponent(jLabMimzee)
+                            .addComponent(jLabJuggernaut)
+                            .addComponent(jLabSolomon)
+                            .addComponent(jLabIrisMid)
+                            .addComponent(jLabIrisLate))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanelRulesOfThumbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jFormTxtArgaivLevel)
+                            .addComponent(jFormTxtMorgulisLevel)
+                            .addComponent(jFormTxtUnspentSouls)
+                            .addComponent(jFormTxtLibertasLevel)
+                            .addComponent(jFormTxtMammonLevel)
+                            .addComponent(jFormTxtMimzeeLevel)
+                            .addComponent(jFormTxtJuggernautLevel)
+                            .addComponent(jFormTxtSolomonLevel)
+                            .addComponent(jFormTxtIrisMidLevel)
+                            .addComponent(jFormTxtIrisLateLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanelRulesOfThumbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jChkBoxHaveMorgulis)
                             .addGroup(jPanelRulesOfThumbLayout.createSequentialGroup()
                                 .addGroup(jPanelRulesOfThumbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabArgaiv)
-                                    .addComponent(jLabMorgulis)
-                                    .addComponent(jLabUnspentSouls)
-                                    .addComponent(jLabLibertas)
-                                    .addComponent(jLabMammon)
-                                    .addComponent(jLabMimzee)
-                                    .addComponent(jLabJuggernaut)
-                                    .addComponent(jLabSolomon)
-                                    .addComponent(jLabIrisMid)
-                                    .addComponent(jLabIrisLate))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanelRulesOfThumbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jFormTxtArgaivLevel)
-                                    .addComponent(jFormTxtMorgulisLevel)
-                                    .addComponent(jFormTxtUnspentSouls)
-                                    .addComponent(jFormTxtLibertasLevel)
-                                    .addComponent(jFormTxtMammonLevel)
-                                    .addComponent(jFormTxtMimzeeLevel)
-                                    .addComponent(jFormTxtJuggernautLevel)
-                                    .addComponent(jFormTxtSolomonLevel)
-                                    .addComponent(jFormTxtIrisMidLevel)
-                                    .addComponent(jFormTxtIrisLateLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
+                                    .addComponent(jLabFragsworth)
+                                    .addComponent(jLabBhaal)
+                                    .addComponent(jLabPluto)
+                                    .addComponent(jLabGameState)
+                                    .addComponent(jLabOptZone))
+                                .addGap(7, 7, 7)
                                 .addGroup(jPanelRulesOfThumbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jChkBoxHaveMorgulis)
-                                    .addGroup(jPanelRulesOfThumbLayout.createSequentialGroup()
-                                        .addGroup(jPanelRulesOfThumbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabFragsworth)
-                                            .addComponent(jLabBhaal)
-                                            .addComponent(jLabPluto)
-                                            .addComponent(jLabGameState)
-                                            .addComponent(jLabOptZone))
-                                        .addGap(7, 7, 7)
-                                        .addGroup(jPanelRulesOfThumbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jComboBoxGameState, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jFormTxtFragsworthLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jSpinnerOptZone, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(jPanelRulesOfThumbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                .addComponent(jFormTxtBhaalLevel, javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jFormTxtPlutoLevel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE))))))
-                            .addGroup(jPanelRulesOfThumbLayout.createSequentialGroup()
-                                .addComponent(jLabSiyaLvl)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jSpinnerSiyaLvl, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(132, 132, 132)))
+                                    .addComponent(jComboBoxGameState, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jFormTxtFragsworthLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jSpinnerOptZone, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanelRulesOfThumbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(jFormTxtBhaalLevel, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jFormTxtPlutoLevel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanelRulesOfThumbLayout.createSequentialGroup()
+                        .addComponent(jLabSiyaLvl)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jSpinnerSiyaLvl, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanelRulesOfThumbLayout.setVerticalGroup(
@@ -949,6 +955,14 @@ public final class RulesOfThumb extends javax.swing.JFrame {
         jFormTxtPlutoHSCost.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         jFormTxtPlutoHSCost.setValue(0);
 
+        jButSaveAncientsData.setText("Save data");
+        jButSaveAncientsData.setToolTipText("Saves the current ancient level, so that current levels are loading upon program start");
+        jButSaveAncientsData.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveAncientsData(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelTotalHSCostsLayout = new javax.swing.GroupLayout(jPanelTotalHSCosts);
         jPanelTotalHSCosts.setLayout(jPanelTotalHSCostsLayout);
         jPanelTotalHSCostsLayout.setHorizontalGroup(
@@ -1057,7 +1071,8 @@ public final class RulesOfThumb extends javax.swing.JFrame {
                                                     .addGap(138, 138, 138)
                                                     .addComponent(jLabPlutoToHSCost)
                                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                    .addComponent(jFormTxtPlutoHSCost, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                                                    .addComponent(jFormTxtPlutoHSCost, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(jButSaveAncientsData, javax.swing.GroupLayout.Alignment.LEADING))))
                             .addGroup(jPanelTotalHSCostsLayout.createSequentialGroup()
                                 .addGap(6, 6, 6)
                                 .addGroup(jPanelTotalHSCostsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1204,7 +1219,8 @@ public final class RulesOfThumb extends javax.swing.JFrame {
                 .addGroup(jPanelTotalHSCostsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jFormTxtTotalHSCost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabTotalHSCost)
-                    .addComponent(jLabToTotalHSCost))
+                    .addComponent(jLabToTotalHSCost)
+                    .addComponent(jButSaveAncientsData))
                 .addContainerGap())
         );
 
@@ -1308,6 +1324,38 @@ public final class RulesOfThumb extends javax.swing.JFrame {
                 "Gilds and Regilds", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_showROTGildRegild
 
+    // Saves ancients data
+    private void saveAncientsData(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveAncientsData
+        
+        Properties prop = new Properties();
+        OutputStream output = null;
+
+        try {
+
+            output = new FileOutputStream("ancients.data");
+
+            // set the properties value
+            for(int x = 0; x < currentLvlSpinnerFields.size(); x++){
+                prop.setProperty(ancientNames[x], currentLvlSpinnerFields.get(ancientNames[x]).getValue().toString());
+            }
+            
+            // save properties to project root folder
+            prop.store(output, null);
+
+        } catch (IOException io) {
+            io.printStackTrace();
+        } finally {
+            if (output != null) {
+                try {
+                    output.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        }
+    }//GEN-LAST:event_saveAncientsData
+
     /**
      * @param args the command line arguments
      */
@@ -1344,6 +1392,7 @@ public final class RulesOfThumb extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButSaveAncientsData;
     private javax.swing.JButton jButShowCredits;
     private javax.swing.JButton jButShowGildsROT;
     private javax.swing.JCheckBox jChkBoxHaveMorgulis;
