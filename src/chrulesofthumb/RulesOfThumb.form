@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.ButtonGroup" name="btnGroupBuild">
+    </Component>
+  </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
     <Property name="title" type="java.lang.String" value="Clicker Heroes Rules of Thumb - app v1.5"/>
@@ -183,6 +187,11 @@
                                           </Group>
                                       </Group>
                                   </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="jRadBtnIdle" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jRadBtnActive" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -216,6 +225,8 @@
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabMorgulis" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jFormTxtMorgulisLevel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jRadBtnIdle" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jRadBtnActive" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -496,6 +507,22 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="haveMorgulisActionEvent"/>
               </Events>
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="jRadBtnIdle">
+              <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="btnGroupBuild"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Idle"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="jRadBtnActive">
+              <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="btnGroupBuild"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Active"/>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>
@@ -832,14 +859,16 @@
                           <Component id="jFormTxtJuggernautHSCost" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jSpinnerSolomonCurrentLvl" alignment="3" max="32767" attributes="0"/>
-                          <Component id="jLabSolomonCurrentLvl" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" alignment="3" groupAlignment="3" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                               <Component id="jLabSolomonToTargetLvl" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabSolomonToHSCost" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jSpinnerSolomonTargetLvl" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jFormTxtSolomonHSCost" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jSpinnerSolomonCurrentLvl" alignment="3" max="32767" attributes="0"/>
+                              <Component id="jLabSolomonCurrentLvl" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>

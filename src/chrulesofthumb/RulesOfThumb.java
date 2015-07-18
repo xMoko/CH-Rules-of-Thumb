@@ -363,7 +363,7 @@ public final class RulesOfThumb extends javax.swing.JFrame {
         try {
 
             output = new FileOutputStream("ancients.data");
-
+            File file = new File("ancients.data");
             // set the properties value
             for (int x = 0; x < currentLvlSpinnerFields.size(); x++) {
                 prop.setProperty(ancientNames[x], currentLvlSpinnerFields.get(ancientNames[x]).getValue().toString());
@@ -371,7 +371,7 @@ public final class RulesOfThumb extends javax.swing.JFrame {
 
             // save properties to project root folder
             prop.store(output, null);
-            JOptionPane.showMessageDialog(this, "Data successfully saved.", "Saved", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Data successfully saved in \n\n" + file.getAbsolutePath(), "Saved", JOptionPane.INFORMATION_MESSAGE);
         } catch (IOException io) {
             io.printStackTrace();
         } finally {
@@ -424,6 +424,7 @@ public final class RulesOfThumb extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnGroupBuild = new javax.swing.ButtonGroup();
         jToolBar1 = new javax.swing.JToolBar();
         jButShowCredits = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JToolBar.Separator();
@@ -466,6 +467,8 @@ public final class RulesOfThumb extends javax.swing.JFrame {
         jLabOptZone = new javax.swing.JLabel();
         jSpinnerOptZone = new javax.swing.JSpinner();
         jChkBoxHaveMorgulis = new javax.swing.JCheckBox();
+        jRadBtnIdle = new javax.swing.JRadioButton();
+        jRadBtnActive = new javax.swing.JRadioButton();
         jPanelTotalHSCosts = new javax.swing.JPanel();
         jSpinnerSiyaTargetLvl = new javax.swing.JSpinner();
         jSpinnerSiyaCurrentLvl = new javax.swing.JSpinner();
@@ -691,6 +694,12 @@ public final class RulesOfThumb extends javax.swing.JFrame {
             }
         });
 
+        btnGroupBuild.add(jRadBtnIdle);
+        jRadBtnIdle.setText("Idle");
+
+        btnGroupBuild.add(jRadBtnActive);
+        jRadBtnActive.setText("Active");
+
         javax.swing.GroupLayout jPanelRulesOfThumbLayout = new javax.swing.GroupLayout(jPanelRulesOfThumb);
         jPanelRulesOfThumb.setLayout(jPanelRulesOfThumbLayout);
         jPanelRulesOfThumbLayout.setHorizontalGroup(
@@ -740,7 +749,11 @@ public final class RulesOfThumb extends javax.swing.JFrame {
                                     .addComponent(jSpinnerOptZone, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanelRulesOfThumbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addComponent(jFormTxtBhaalLevel, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jFormTxtPlutoLevel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE))))))
+                                        .addComponent(jFormTxtPlutoLevel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE))))
+                            .addGroup(jPanelRulesOfThumbLayout.createSequentialGroup()
+                                .addComponent(jRadBtnIdle)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jRadBtnActive))))
                     .addGroup(jPanelRulesOfThumbLayout.createSequentialGroup()
                         .addComponent(jLabSiyaLvl)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -765,7 +778,9 @@ public final class RulesOfThumb extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanelRulesOfThumbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabMorgulis)
-                            .addComponent(jFormTxtMorgulisLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jFormTxtMorgulisLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jRadBtnIdle)
+                            .addComponent(jRadBtnActive))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanelRulesOfThumbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabUnspentSouls)
@@ -1364,14 +1379,15 @@ public final class RulesOfThumb extends javax.swing.JFrame {
                     .addComponent(jLabJuggernautToHSCost)
                     .addComponent(jFormTxtJuggernautHSCost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelTotalHSCostsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jSpinnerSolomonCurrentLvl)
-                    .addComponent(jLabSolomonCurrentLvl)
+                .addGroup(jPanelTotalHSCostsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelTotalHSCostsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabSolomonToTargetLvl)
                         .addComponent(jLabSolomonToHSCost)
                         .addComponent(jSpinnerSolomonTargetLvl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jFormTxtSolomonHSCost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jFormTxtSolomonHSCost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelTotalHSCostsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jSpinnerSolomonCurrentLvl)
+                        .addComponent(jLabSolomonCurrentLvl)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelTotalHSCostsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabIrisCurrentLvl)
@@ -1476,6 +1492,7 @@ public final class RulesOfThumb extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup btnGroupBuild;
     private javax.swing.JButton jButSaveAncientsData;
     private javax.swing.JButton jButShowCredits;
     private javax.swing.JButton jButShowGildsROT;
@@ -1568,6 +1585,8 @@ public final class RulesOfThumb extends javax.swing.JFrame {
     private javax.swing.JLabel jLabUnspentSouls;
     private javax.swing.JPanel jPanelRulesOfThumb;
     private javax.swing.JPanel jPanelTotalHSCosts;
+    private javax.swing.JRadioButton jRadBtnActive;
+    private javax.swing.JRadioButton jRadBtnIdle;
     private javax.swing.JToolBar.Separator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparatorStart;
