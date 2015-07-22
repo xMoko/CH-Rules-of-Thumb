@@ -34,6 +34,7 @@ import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
 //import javax.swing.JScrollPane;
 import javax.swing.JSpinner;
+import javax.swing.JSpinner.DefaultEditor;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.event.HyperlinkEvent;
@@ -50,30 +51,44 @@ public final class RulesOfThumb extends javax.swing.JFrame {
      * Creates new form RulesOfThumb
      */
     
-    HashMap<String, JFormattedTextField> targetLvlCostsFields;
+    // Store target level hs cost calculator components for easy access
+    private HashMap<String, JSpinner> currentLvlSpinnerFields;
+    private HashMap<String, JSpinner> targetLvlSpinnerFields; 
+    private HashMap<String, JFormattedTextField> targetLvlCostsFields;    
+      
     
-    HashMap<String, JSpinner> currentLvlSpinnerFields;
-    HashMap<String, JSpinner> targetLvlSpinnerFields;   
-    
-    final String ancientNames[] = new String[]{"Siyalatas", "Argaiv", "Morgulis", 
+    private final String ancientNames[] = new String[]{"Siyalatas", "Argaiv", "Morgulis", 
                                                 "Libertas", "Mammon", "Mimzee",
                                                 "Fragsworth", "Bhaal", "Pluto",
                                                 "Juggernaut", "Solomon", "Iris"};
     
+    // Store preferences file
+    File preferences;
+    
+    // Constructor
     public RulesOfThumb() {
         // Initialize UI components
         initComponents();
         
-        // Initialize HashMap
+        // Initialize HashMaps
         initHashMaps();       
         
-        jLabMorgulis.setEnabled(false);
-        jFormTxtMorgulisLevel.setEnabled(false);
+        // Load preferences
+        preferences = new File("app.preferences");
+        if(preferences.exists()){
+            // Load user "settings"
+            loadPreferences();
+        }else{
+            // Default "settings"
+            setMorgulisUnspentHsState();
+            setAncientsBuild();
+        }
         
-        // We set the frame to center
+        // Set frame to center
         setLocationRelativeTo(null);
         
         // Frame size
+        // 560 x 610
         setSize(1010, 610);
         
         // Frame icon
@@ -82,25 +97,13 @@ public final class RulesOfThumb extends javax.swing.JFrame {
         // We start showing a starting value
         showAncientLevels();
         
+        // Load saved ancient levels
         loadAncientsData();
     }
     
-    // Init hashmap
+    // Init hashmaps
     private void initHashMaps() {
-        targetLvlCostsFields = new HashMap<>();
-        targetLvlCostsFields.put("Siyalatas", jFormTxtSiyaHSCost);
-        targetLvlCostsFields.put("Argaiv", jFormTxtArgaivHSCost);
-        targetLvlCostsFields.put("Morgulis", jFormTxtMorgulisHSCost);
-        targetLvlCostsFields.put("Libertas", jFormTxtLibertasHSCost);
-        targetLvlCostsFields.put("Mammon", jFormTxtMammonHSCost);
-        targetLvlCostsFields.put("Mimzee", jFormTxtMimzeeHSCost);
-        targetLvlCostsFields.put("Fragsworth", jFormTxtFragsworthHSCost);
-        targetLvlCostsFields.put("Bhaal", jFormTxtBhaalHSCost);
-        targetLvlCostsFields.put("Pluto", jFormTxtPlutoHSCost);
-        targetLvlCostsFields.put("Juggernaut", jFormTxtJuggernautHSCost);
-        targetLvlCostsFields.put("Solomon", jFormTxtSolomonHSCost);
-        targetLvlCostsFields.put("Iris", jFormTxtIrisHSCost);        
-        
+        // Current level fields
         currentLvlSpinnerFields = new HashMap<>();
         currentLvlSpinnerFields.put("Siyalatas", jSpinnerSiyaCurrentLvl);
         currentLvlSpinnerFields.put("Argaiv", jSpinnerArgaivCurrentLvl);
@@ -115,6 +118,7 @@ public final class RulesOfThumb extends javax.swing.JFrame {
         currentLvlSpinnerFields.put("Solomon", jSpinnerSolomonCurrentLvl);
         currentLvlSpinnerFields.put("Iris", jSpinnerIrisCurrentLvl);
         
+        // Target level fields
         targetLvlSpinnerFields = new HashMap<>();
         targetLvlSpinnerFields.put("Siyalatas", jSpinnerSiyaTargetLvl);
         targetLvlSpinnerFields.put("Argaiv", jSpinnerArgaivTargetLvl);
@@ -127,33 +131,60 @@ public final class RulesOfThumb extends javax.swing.JFrame {
         targetLvlSpinnerFields.put("Pluto", jSpinnerPlutoTargetLvl);
         targetLvlSpinnerFields.put("Juggernaut", jSpinnerJuggernautTargetLvl);
         targetLvlSpinnerFields.put("Solomon", jSpinnerSolomonTargetLvl);
-        targetLvlSpinnerFields.put("Iris", jSpinnerIrisTargetLvl);       
+        targetLvlSpinnerFields.put("Iris", jSpinnerIrisTargetLvl);  
+        
+        // Target HS cost fields
+        targetLvlCostsFields = new HashMap<>();
+        targetLvlCostsFields.put("Siyalatas", jFormTxtSiyaHSCost);
+        targetLvlCostsFields.put("Argaiv", jFormTxtArgaivHSCost);
+        targetLvlCostsFields.put("Morgulis", jFormTxtMorgulisHSCost);
+        targetLvlCostsFields.put("Libertas", jFormTxtLibertasHSCost);
+        targetLvlCostsFields.put("Mammon", jFormTxtMammonHSCost);
+        targetLvlCostsFields.put("Mimzee", jFormTxtMimzeeHSCost);
+        targetLvlCostsFields.put("Fragsworth", jFormTxtFragsworthHSCost);
+        targetLvlCostsFields.put("Bhaal", jFormTxtBhaalHSCost);
+        targetLvlCostsFields.put("Pluto", jFormTxtPlutoHSCost);
+        targetLvlCostsFields.put("Juggernaut", jFormTxtJuggernautHSCost);
+        targetLvlCostsFields.put("Solomon", jFormTxtSolomonHSCost);
+        targetLvlCostsFields.put("Iris", jFormTxtIrisHSCost);       
     }
 
     /*
-        Showing Ancient's levels
+        Showing Ancient's levels, we set the calculated values to the components
     */
     public void showAncientLevels(){
-        jFormTxtArgaivLevel.setValue(calculateArgaivLevel());
+        // Argaiv
+        jSpinnerArgaivLvl.setValue(calculateArgaivLevel());
+        // Morgulis
         jFormTxtMorgulisLevel.setValue(calculateMorgulisLevel());
+        // Unspent souls
         jFormTxtUnspentSouls.setValue(calculateUnspentSouls());
+        // Libertas
         jFormTxtLibertasLevel.setValue(calculateGoldLevels());
+        // Mammon
         jFormTxtMammonLevel.setValue(calculateGoldLevels());
+        // Mimzee
         jFormTxtMimzeeLevel.setValue(calculateGoldLevels());
+        // Fragsworth
         jFormTxtFragsworthLevel.setValue(calculateClickLevels());
+        // Bhaal
         jFormTxtBhaalLevel.setValue(calculateClickLevels());
+        // Pluto
         jFormTxtPlutoLevel.setValue(calculateClickLevels());
+        // Juggernaut
         jFormTxtJuggernautLevel.setValue(calculateJuggernautLevel());
+        // Solomon
         jFormTxtSolomonLevel.setValue(calculateSolomonLevel());
+        // Iris mid
         jFormTxtIrisMidLevel.setValue(calculateIrisMidLevel());
+        // Iris late
         jFormTxtIrisLateLevel.setValue(calculateIrisLateLevel());
     }
 
     
     /*
         Calculating Ancients suggested levels (Rules of Thumb)
-    */
-    
+    */    
     // Argaiv
     public int calculateArgaivLevel(){
         return Integer.parseInt(jSpinnerSiyaLvl.getValue().toString());
@@ -202,13 +233,13 @@ public final class RulesOfThumb extends javax.swing.JFrame {
         */
         Double multiplier = 0.0;
         switch(jComboBoxGameState.getSelectedIndex()){
-            case 0:
+            case 0: // Early
                 multiplier = 1.0;
                 break;
-            case 1:
+            case 1: // Mid
                 multiplier = 0.75;
                 break;
-            case 2:   
+            case 2: // Late   
                 multiplier = 0.5;
                 break;
         }
@@ -223,14 +254,14 @@ public final class RulesOfThumb extends javax.swing.JFrame {
         jFormTxtSolomonLevel.setValue(calculateSolomonLevel());
     }
     
-    // Iris (mid)
+    // Iris mid
     public int calculateIrisMidLevel(){
         // (siya * 0.75) - 300
         int irisMid = (int) Math.round((Double.parseDouble(jSpinnerSiyaLvl.getValue().toString()) * 0.75) - 300);
         return irisMid;
     }
     
-    // Iris (late)
+    // Iris late
     public int calculateIrisLateLevel(){
         // optimal zone - 1001
         return Integer.parseInt(jSpinnerOptZone.getValue().toString()) - 1001;
@@ -238,8 +269,7 @@ public final class RulesOfThumb extends javax.swing.JFrame {
     
     /*
         Calculating ancients target level hero soul cost
-    */
-    
+    */    
     // Siyalatas, Argaiv, Gold (Libertas, Mammon and Mimzee) and Click (Fragsworth, Bhaal and Pluto) -> same formula for them all
     private void calculateSimilars(String ancient){
         int currentLvl = (int) currentLvlSpinnerFields.get(ancient).getValue();
@@ -276,7 +306,7 @@ public final class RulesOfThumb extends javax.swing.JFrame {
         targetLvlCostsFields.get(ancient).setValue(HSCost);
     }     
     
-    // All ancients target total HS cost
+    // All ancients target level total HS cost
     private void calculateTargetHSCost(){
         int totalTargetHSCost = 0;
         for(int x = 0; x < targetLvlCostsFields.size(); x++){            
@@ -287,19 +317,14 @@ public final class RulesOfThumb extends javax.swing.JFrame {
     
     /*
         Other stuff
-    */
-    
+    */    
     // Hide/unhide morgulis/unspent souls components
-    private void haveMorgulis() {
+    private void setMorgulisUnspentHsState() {
         if (jChkBoxHaveMorgulis.isSelected()) {
-            jLabUnspentSouls.setEnabled(false);
             jFormTxtUnspentSouls.setEnabled(false);
-            jLabMorgulis.setEnabled(true);
             jFormTxtMorgulisLevel.setEnabled(true);
         } else {
-            jLabUnspentSouls.setEnabled(true);
             jFormTxtUnspentSouls.setEnabled(true);
-            jLabMorgulis.setEnabled(false);
             jFormTxtMorgulisLevel.setEnabled(false);
         }
     }
@@ -361,7 +386,6 @@ public final class RulesOfThumb extends javax.swing.JFrame {
         OutputStream output = null;
 
         try {
-
             output = new FileOutputStream("ancients.data");
             File file = new File("ancients.data");
             // set the properties value
@@ -371,7 +395,7 @@ public final class RulesOfThumb extends javax.swing.JFrame {
 
             // save properties to project root folder
             prop.store(output, null);
-            JOptionPane.showMessageDialog(this, "Data successfully saved in \n\n" + file.getAbsolutePath(), "Saved", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Data successfully saved in: \n\n" + file.getCanonicalPath(), "Saved", JOptionPane.INFORMATION_MESSAGE);
         } catch (IOException io) {
             io.printStackTrace();
         } finally {
@@ -392,7 +416,6 @@ public final class RulesOfThumb extends javax.swing.JFrame {
         File file = new File("ancients.data");
         if (file.exists()) {
             try {
-
                 input = new FileInputStream("ancients.data");
 
                 // load a properties file                
@@ -402,7 +425,6 @@ public final class RulesOfThumb extends javax.swing.JFrame {
                     currentLvlSpinnerFields.get(ancientNames[x]).setValue(Integer.parseInt(prop.getProperty(ancientNames[x])));
                     targetLvlSpinnerFields.get(ancientNames[x]).setValue(Integer.parseInt(prop.getProperty(ancientNames[x])));
                 }
-
             } catch (IOException ex) {
                 ex.printStackTrace();
             } finally {
@@ -417,6 +439,109 @@ public final class RulesOfThumb extends javax.swing.JFrame {
         }
     }
     
+    // Hide/unhide fields depending on selected build
+    private void setAncientsBuild(){  
+        
+        // Depending on selected build, we enable disable idle ancients
+        jSpinnerSiyaLvl.setEnabled(jRadBtnIdle.isSelected());
+        jFormTxtLibertasLevel.setEnabled(jRadBtnIdle.isSelected());
+        
+        // Depending on selected build, we enable disable active ancients
+        jFormTxtFragsworthLevel.setEnabled(jRadBtnActive.isSelected());
+        jFormTxtBhaalLevel.setEnabled(jRadBtnActive.isSelected());
+        jFormTxtPlutoLevel.setEnabled(jRadBtnActive.isSelected());
+        jFormTxtJuggernautLevel.setEnabled(jRadBtnActive.isSelected());             
+        
+        // Target lvl hs cost calculator components
+        for(int x = 0; x < 10; x++){
+            if(x <= 3 && (x == 0 || x == 3)){
+                currentLvlSpinnerFields.get(ancientNames[x]).setEnabled(jRadBtnIdle.isSelected());
+                targetLvlSpinnerFields.get(ancientNames[x]).setEnabled(jRadBtnIdle.isSelected());
+                targetLvlCostsFields.get(ancientNames[x]).setEnabled(jRadBtnIdle.isSelected());
+            }else{
+                if (x >= 6) {
+                    currentLvlSpinnerFields.get(ancientNames[x]).setEnabled(jRadBtnActive.isSelected());
+                    targetLvlSpinnerFields.get(ancientNames[x]).setEnabled(jRadBtnActive.isSelected());
+                    targetLvlCostsFields.get(ancientNames[x]).setEnabled(jRadBtnActive.isSelected());
+                }
+            }
+        }
+    }
+    
+    // Saves preferences: morgulis/unspent hs, build type, game state (early, mid and late) and optimal zone
+    private void savePreferences() {
+        Properties prop = new Properties();
+        OutputStream output = null;
+
+        try {
+            output = new FileOutputStream("app.preferences");
+            File file = new File("app.preferences");            
+            
+            prop.setProperty("haveMorgulis", Boolean.toString(jChkBoxHaveMorgulis.isSelected()));
+            
+            if(jRadBtnIdle.isSelected()){
+                prop.setProperty("gameBuild", "idle");
+            }else{
+                prop.setProperty("gameBuild", "active");
+            }
+            
+            prop.setProperty("gameState", Integer.toString(jComboBoxGameState.getSelectedIndex()));
+            
+            prop.setProperty("optimalZone", Integer.toString((int) jSpinnerOptZone.getValue()));
+
+            // save properties to project root folder
+            prop.store(output, null);
+            JOptionPane.showMessageDialog(this, "Preferences successfully saved in: \n\n" + file.getCanonicalPath(), "Saved", JOptionPane.INFORMATION_MESSAGE);
+        } catch (IOException io) {
+            io.printStackTrace();
+        } finally {
+            if (output != null) {
+                try {
+                    output.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    // Load preferences
+    private void loadPreferences() {
+        Properties prop = new Properties();
+        InputStream input = null;
+        try {
+            input = new FileInputStream("app.preferences");
+
+            // load a properties file                
+            prop.load(input);
+
+            jChkBoxHaveMorgulis.setSelected(Boolean.parseBoolean(prop.getProperty("haveMorgulis")));
+            setMorgulisUnspentHsState();
+
+            if (prop.getProperty("gameBuild").equals("idle")) {
+                jRadBtnIdle.setSelected(true);
+            } else {
+                jRadBtnActive.setSelected(true);
+            }
+            setAncientsBuild();
+
+            jComboBoxGameState.setSelectedIndex(Integer.parseInt(prop.getProperty("gameState")));
+
+            jSpinnerOptZone.setValue(Integer.parseInt(prop.getProperty("optimalZone")));
+
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        } finally {
+            if (input != null) {
+                try {
+                    input.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
     /**
      * This method is called from within the constructor to initialize the form. WARNING: Do NOT modify this code. The content of this method is always regenerated by the Form Editor.
      */
@@ -451,7 +576,6 @@ public final class RulesOfThumb extends javax.swing.JFrame {
         jComboBoxGameState = new javax.swing.JComboBox();
         jLabIrisMid = new javax.swing.JLabel();
         jLabIrisLate = new javax.swing.JLabel();
-        jFormTxtArgaivLevel = new javax.swing.JFormattedTextField();
         jFormTxtMorgulisLevel = new javax.swing.JFormattedTextField();
         jFormTxtUnspentSouls = new javax.swing.JFormattedTextField();
         jFormTxtLibertasLevel = new javax.swing.JFormattedTextField();
@@ -469,6 +593,8 @@ public final class RulesOfThumb extends javax.swing.JFrame {
         jChkBoxHaveMorgulis = new javax.swing.JCheckBox();
         jRadBtnIdle = new javax.swing.JRadioButton();
         jRadBtnActive = new javax.swing.JRadioButton();
+        jBtnSavePreferences = new javax.swing.JButton();
+        jSpinnerArgaivLvl = new javax.swing.JSpinner();
         jPanelTotalHSCosts = new javax.swing.JPanel();
         jSpinnerSiyaTargetLvl = new javax.swing.JSpinner();
         jSpinnerSiyaCurrentLvl = new javax.swing.JSpinner();
@@ -590,7 +716,7 @@ public final class RulesOfThumb extends javax.swing.JFrame {
         test.setViewportView(jPanelRulesOfThumb);
         jTabRulesOfThumb.addTab("Rules of Thumb", test);*/
 
-        jLabSiyaLvl.setText("Siyalatas Level");
+        jLabSiyaLvl.setText("Siyalatas");
 
         jSpinnerSiyaLvl.addChangeListener(new ChangeListener(){
             @Override
@@ -604,7 +730,7 @@ public final class RulesOfThumb extends javax.swing.JFrame {
 
         jLabMorgulis.setText("Morgulis");
 
-        jLabUnspentSouls.setText("Unspent souls");
+        jLabUnspentSouls.setText("Unspent HS");
         jLabUnspentSouls.setToolTipText("If no Morgulis");
 
         jLabLibertas.setText("Libertas");
@@ -635,10 +761,6 @@ public final class RulesOfThumb extends javax.swing.JFrame {
         jLabIrisMid.setText("Iris Mid");
 
         jLabIrisLate.setText("Iris Late");
-
-        jFormTxtArgaivLevel.setEditable(false);
-        jFormTxtArgaivLevel.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getIntegerInstance())));
-        jFormTxtArgaivLevel.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
 
         jFormTxtMorgulisLevel.setEditable(false);
         jFormTxtMorgulisLevel.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
@@ -695,10 +817,38 @@ public final class RulesOfThumb extends javax.swing.JFrame {
         });
 
         btnGroupBuild.add(jRadBtnIdle);
+        jRadBtnIdle.setSelected(true);
         jRadBtnIdle.setText("Idle");
+        jRadBtnIdle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                changeAncientsBuildActionEvent(evt);
+            }
+        });
 
         btnGroupBuild.add(jRadBtnActive);
         jRadBtnActive.setText("Active");
+        jRadBtnActive.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                changeAncientsBuildActionEvent(evt);
+            }
+        });
+
+        jBtnSavePreferences.setText("Save preferences");
+        jBtnSavePreferences.setToolTipText("Saves the current state of Morgulis/Unspent HS, build type, game state (early, mid and late) and optimal zone");
+        jBtnSavePreferences.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                savePreferencesActionEvent(evt);
+            }
+        });
+
+        jSpinnerArgaivLvl.addChangeListener(new ChangeListener(){
+            @Override
+            public void stateChanged(ChangeEvent e){
+                jSpinnerSiyaLvl.setValue(jSpinnerArgaivLvl.getValue());
+                showAncientLevels();
+            }
+        });
+        jSpinnerArgaivLvl.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(1), null, Integer.valueOf(1)));
 
         javax.swing.GroupLayout jPanelRulesOfThumbLayout = new javax.swing.GroupLayout(jPanelRulesOfThumb);
         jPanelRulesOfThumb.setLayout(jPanelRulesOfThumbLayout);
@@ -707,57 +857,65 @@ public final class RulesOfThumb extends javax.swing.JFrame {
             .addGroup(jPanelRulesOfThumbLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelRulesOfThumbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparatorStart)
+                    .addComponent(jSeparatorStart, javax.swing.GroupLayout.DEFAULT_SIZE, 523, Short.MAX_VALUE)
                     .addGroup(jPanelRulesOfThumbLayout.createSequentialGroup()
                         .addGroup(jPanelRulesOfThumbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabArgaiv)
-                            .addComponent(jLabMorgulis)
-                            .addComponent(jLabUnspentSouls)
-                            .addComponent(jLabLibertas)
-                            .addComponent(jLabMammon)
-                            .addComponent(jLabMimzee)
-                            .addComponent(jLabJuggernaut)
-                            .addComponent(jLabSolomon)
-                            .addComponent(jLabIrisMid)
-                            .addComponent(jLabIrisLate))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanelRulesOfThumbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jFormTxtArgaivLevel)
-                            .addComponent(jFormTxtMorgulisLevel)
-                            .addComponent(jFormTxtUnspentSouls)
-                            .addComponent(jFormTxtLibertasLevel)
-                            .addComponent(jFormTxtMammonLevel)
-                            .addComponent(jFormTxtMimzeeLevel)
-                            .addComponent(jFormTxtJuggernautLevel)
-                            .addComponent(jFormTxtSolomonLevel)
-                            .addComponent(jFormTxtIrisMidLevel)
-                            .addComponent(jFormTxtIrisLateLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanelRulesOfThumbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jChkBoxHaveMorgulis)
+                            .addGroup(jPanelRulesOfThumbLayout.createSequentialGroup()
+                                .addComponent(jLabSiyaLvl)
+                                .addGap(18, 18, 18)
+                                .addComponent(jSpinnerSiyaLvl, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanelRulesOfThumbLayout.createSequentialGroup()
                                 .addGroup(jPanelRulesOfThumbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabFragsworth)
-                                    .addComponent(jLabBhaal)
-                                    .addComponent(jLabPluto)
-                                    .addComponent(jLabGameState)
-                                    .addComponent(jLabOptZone))
-                                .addGap(7, 7, 7)
-                                .addGroup(jPanelRulesOfThumbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jComboBoxGameState, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jFormTxtFragsworthLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jSpinnerOptZone, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanelRulesOfThumbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(jFormTxtBhaalLevel, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jFormTxtPlutoLevel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE))))
-                            .addGroup(jPanelRulesOfThumbLayout.createSequentialGroup()
-                                .addComponent(jRadBtnIdle)
+                                    .addComponent(jLabArgaiv)
+                                    .addComponent(jLabMorgulis)
+                                    .addComponent(jLabLibertas)
+                                    .addComponent(jLabMammon)
+                                    .addComponent(jLabMimzee)
+                                    .addComponent(jLabJuggernaut)
+                                    .addComponent(jLabSolomon)
+                                    .addComponent(jLabIrisMid)
+                                    .addComponent(jLabIrisLate))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jRadBtnActive))))
-                    .addGroup(jPanelRulesOfThumbLayout.createSequentialGroup()
-                        .addComponent(jLabSiyaLvl)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jSpinnerSiyaLvl, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(jPanelRulesOfThumbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jSpinnerArgaivLvl)
+                                    .addComponent(jFormTxtMorgulisLevel)
+                                    .addComponent(jFormTxtLibertasLevel)
+                                    .addComponent(jFormTxtMammonLevel)
+                                    .addComponent(jFormTxtMimzeeLevel)
+                                    .addComponent(jFormTxtJuggernautLevel)
+                                    .addComponent(jFormTxtSolomonLevel)
+                                    .addComponent(jFormTxtIrisMidLevel)
+                                    .addComponent(jFormTxtIrisLateLevel, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanelRulesOfThumbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanelRulesOfThumbLayout.createSequentialGroup()
+                                        .addGroup(jPanelRulesOfThumbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabFragsworth)
+                                            .addComponent(jLabBhaal)
+                                            .addComponent(jLabPluto)
+                                            .addComponent(jLabGameState)
+                                            .addComponent(jLabOptZone)
+                                            .addComponent(jLabUnspentSouls))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(jPanelRulesOfThumbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jComboBoxGameState, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jSpinnerOptZone, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(jPanelRulesOfThumbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                .addComponent(jFormTxtBhaalLevel, javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jFormTxtPlutoLevel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE))
+                                            .addGroup(jPanelRulesOfThumbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                .addComponent(jFormTxtUnspentSouls, javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jFormTxtFragsworthLevel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE))))
+                                    .addGroup(jPanelRulesOfThumbLayout.createSequentialGroup()
+                                        .addComponent(jChkBoxHaveMorgulis)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jRadBtnIdle)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jRadBtnActive)))))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelRulesOfThumbLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jBtnSavePreferences)))
                 .addContainerGap())
         );
         jPanelRulesOfThumbLayout.setVerticalGroup(
@@ -766,23 +924,22 @@ public final class RulesOfThumb extends javax.swing.JFrame {
                 .addGroup(jPanelRulesOfThumbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabSiyaLvl)
                     .addComponent(jSpinnerSiyaLvl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanelRulesOfThumbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabArgaiv)
+                    .addComponent(jSpinnerArgaivLvl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanelRulesOfThumbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jChkBoxHaveMorgulis)
+                        .addComponent(jRadBtnIdle)
+                        .addComponent(jRadBtnActive)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparatorStart, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelRulesOfThumbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanelRulesOfThumbLayout.createSequentialGroup()
-                        .addGroup(jPanelRulesOfThumbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabArgaiv)
-                            .addComponent(jFormTxtArgaivLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jChkBoxHaveMorgulis))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(2, 2, 2)
+                .addGroup(jPanelRulesOfThumbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelRulesOfThumbLayout.createSequentialGroup()
                         .addGroup(jPanelRulesOfThumbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabMorgulis)
                             .addComponent(jFormTxtMorgulisLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jRadBtnIdle)
-                            .addComponent(jRadBtnActive))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanelRulesOfThumbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabUnspentSouls)
                             .addComponent(jFormTxtUnspentSouls, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -813,7 +970,7 @@ public final class RulesOfThumb extends javax.swing.JFrame {
                         .addGroup(jPanelRulesOfThumbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jFormTxtIrisLateLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabIrisLate)))
-                    .addGroup(jPanelRulesOfThumbLayout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelRulesOfThumbLayout.createSequentialGroup()
                         .addGroup(jPanelRulesOfThumbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabFragsworth)
                             .addComponent(jFormTxtFragsworthLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -833,7 +990,8 @@ public final class RulesOfThumb extends javax.swing.JFrame {
                         .addGroup(jPanelRulesOfThumbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabOptZone)
                             .addComponent(jSpinnerOptZone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(16, 16, 16))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                .addComponent(jBtnSavePreferences))
         );
 
         jTabRulesOfThumb.addTab("Rules of Thumb", jPanelRulesOfThumb);
@@ -1430,7 +1588,7 @@ public final class RulesOfThumb extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTabRulesOfThumb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 50, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jLabCHImage)
                         .addGap(18, 18, 18)
                         .addComponent(jLabAncientsImage)
@@ -1441,7 +1599,7 @@ public final class RulesOfThumb extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void haveMorgulisActionEvent(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_haveMorgulisActionEvent
-        haveMorgulis();
+        setMorgulisUnspentHsState();
     }//GEN-LAST:event_haveMorgulisActionEvent
 
     private void showCreditsActionEvent(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showCreditsActionEvent
@@ -1455,6 +1613,14 @@ public final class RulesOfThumb extends javax.swing.JFrame {
     private void saveAncientsDataActionEvent(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveAncientsDataActionEvent
         saveAncientsData();        
     }//GEN-LAST:event_saveAncientsDataActionEvent
+
+    private void changeAncientsBuildActionEvent(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changeAncientsBuildActionEvent
+        setAncientsBuild();
+    }//GEN-LAST:event_changeAncientsBuildActionEvent
+
+    private void savePreferencesActionEvent(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_savePreferencesActionEvent
+        savePreferences();
+    }//GEN-LAST:event_savePreferencesActionEvent
 
     /**
      * @param args the command line arguments
@@ -1493,13 +1659,13 @@ public final class RulesOfThumb extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup btnGroupBuild;
+    private javax.swing.JButton jBtnSavePreferences;
     private javax.swing.JButton jButSaveAncientsData;
     private javax.swing.JButton jButShowCredits;
     private javax.swing.JButton jButShowGildsROT;
     private javax.swing.JCheckBox jChkBoxHaveMorgulis;
     private javax.swing.JComboBox jComboBoxGameState;
     private javax.swing.JFormattedTextField jFormTxtArgaivHSCost;
-    private javax.swing.JFormattedTextField jFormTxtArgaivLevel;
     private javax.swing.JFormattedTextField jFormTxtBhaalHSCost;
     private javax.swing.JFormattedTextField jFormTxtBhaalLevel;
     private javax.swing.JFormattedTextField jFormTxtFragsworthHSCost;
@@ -1591,6 +1757,7 @@ public final class RulesOfThumb extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparatorStart;
     private javax.swing.JSpinner jSpinnerArgaivCurrentLvl;
+    private javax.swing.JSpinner jSpinnerArgaivLvl;
     private javax.swing.JSpinner jSpinnerArgaivTargetLvl;
     private javax.swing.JSpinner jSpinnerBhaalCurrentLvl;
     private javax.swing.JSpinner jSpinnerBhaalTargetLvl;

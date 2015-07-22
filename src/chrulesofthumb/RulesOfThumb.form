@@ -49,7 +49,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jTabRulesOfThumb" min="-2" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="0" pref="50" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       <Component id="jLabCHImage" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jLabAncientsImage" min="-2" max="-2" attributes="0"/>
@@ -135,69 +135,81 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jSeparatorStart" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jSeparatorStart" alignment="0" pref="523" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabArgaiv" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabMorgulis" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabUnspentSouls" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabLibertas" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabMammon" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabMimzee" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabJuggernaut" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabSolomon" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabIrisMid" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabIrisLate" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jFormTxtArgaivLevel" max="32767" attributes="0"/>
-                                  <Component id="jFormTxtMorgulisLevel" max="32767" attributes="0"/>
-                                  <Component id="jFormTxtUnspentSouls" max="32767" attributes="0"/>
-                                  <Component id="jFormTxtLibertasLevel" max="32767" attributes="0"/>
-                                  <Component id="jFormTxtMammonLevel" max="32767" attributes="0"/>
-                                  <Component id="jFormTxtMimzeeLevel" max="32767" attributes="0"/>
-                                  <Component id="jFormTxtJuggernautLevel" max="32767" attributes="0"/>
-                                  <Component id="jFormTxtSolomonLevel" max="32767" attributes="0"/>
-                                  <Component id="jFormTxtIrisMidLevel" max="32767" attributes="0"/>
-                                  <Component id="jFormTxtIrisLateLevel" min="-2" pref="126" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jChkBoxHaveMorgulis" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jLabSiyaLvl" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="jSpinnerSiyaLvl" min="-2" pref="126" max="-2" attributes="0"/>
+                                  </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabFragsworth" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabBhaal" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabPluto" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabGameState" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabOptZone" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabArgaiv" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabMorgulis" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabLibertas" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabMammon" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabMimzee" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabJuggernaut" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabSolomon" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabIrisMid" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabIrisLate" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="jSpinnerArgaivLvl" max="32767" attributes="0"/>
+                                          <Component id="jFormTxtMorgulisLevel" max="32767" attributes="0"/>
+                                          <Component id="jFormTxtLibertasLevel" max="32767" attributes="0"/>
+                                          <Component id="jFormTxtMammonLevel" max="32767" attributes="0"/>
+                                          <Component id="jFormTxtMimzeeLevel" max="32767" attributes="0"/>
+                                          <Component id="jFormTxtJuggernautLevel" max="32767" attributes="0"/>
+                                          <Component id="jFormTxtSolomonLevel" max="32767" attributes="0"/>
+                                          <Component id="jFormTxtIrisMidLevel" max="32767" attributes="0"/>
+                                          <Component id="jFormTxtIrisLateLevel" pref="126" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jComboBoxGameState" min="-2" pref="223" max="-2" attributes="0"/>
-                                          <Component id="jFormTxtFragsworthLevel" alignment="0" min="-2" pref="126" max="-2" attributes="0"/>
-                                          <Component id="jSpinnerOptZone" alignment="0" min="-2" pref="126" max="-2" attributes="0"/>
-                                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                              <Component id="jFormTxtBhaalLevel" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="jFormTxtPlutoLevel" alignment="0" pref="126" max="32767" attributes="0"/>
+                                          <Group type="102" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="jLabFragsworth" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jLabBhaal" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jLabPluto" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jLabGameState" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jLabOptZone" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jLabUnspentSouls" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="jComboBoxGameState" min="-2" pref="223" max="-2" attributes="0"/>
+                                                  <Component id="jSpinnerOptZone" alignment="0" min="-2" pref="126" max="-2" attributes="0"/>
+                                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                                      <Component id="jFormTxtBhaalLevel" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="jFormTxtPlutoLevel" alignment="0" pref="126" max="32767" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                                      <Component id="jFormTxtUnspentSouls" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="jFormTxtFragsworthLevel" alignment="0" pref="126" max="32767" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="jChkBoxHaveMorgulis" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="jRadBtnIdle" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="jRadBtnActive" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
-                                  <Group type="102" attributes="0">
-                                      <Component id="jRadBtnIdle" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jRadBtnActive" min="-2" max="-2" attributes="0"/>
-                                  </Group>
                               </Group>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabSiyaLvl" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jSpinnerSiyaLvl" min="-2" pref="126" max="-2" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Component id="jBtnSavePreferences" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -211,29 +223,28 @@
                           <Component id="jLabSiyaLvl" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jSpinnerSiyaLvl" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabArgaiv" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jSpinnerArgaivLvl" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" alignment="3" groupAlignment="3" attributes="0">
+                              <Component id="jChkBoxHaveMorgulis" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jRadBtnIdle" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jRadBtnActive" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jSeparatorStart" min="-2" pref="10" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabArgaiv" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jFormTxtArgaivLevel" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jChkBoxHaveMorgulis" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabMorgulis" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jFormTxtMorgulisLevel" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jRadBtnIdle" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jRadBtnActive" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabUnspentSouls" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jFormTxtUnspentSouls" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabLibertas" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jFormTxtLibertasLevel" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -269,7 +280,7 @@
                                   <Component id="jLabIrisLate" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabFragsworth" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jFormTxtFragsworthLevel" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -296,7 +307,8 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                      <EmptySpace pref="64" max="32767" attributes="0"/>
+                      <Component id="jBtnSavePreferences" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -304,7 +316,7 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabSiyaLvl">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Siyalatas Level"/>
+                <Property name="text" type="java.lang.String" value="Siyalatas"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JSpinner" name="jSpinnerSiyaLvl">
@@ -331,7 +343,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabUnspentSouls">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Unspent souls"/>
+                <Property name="text" type="java.lang.String" value="Unspent HS"/>
                 <Property name="toolTipText" type="java.lang.String" value="If no Morgulis"/>
               </Properties>
             </Component>
@@ -402,15 +414,6 @@
             <Component class="javax.swing.JLabel" name="jLabIrisLate">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Iris Late"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JFormattedTextField" name="jFormTxtArgaivLevel">
-              <Properties>
-                <Property name="editable" type="boolean" value="false"/>
-                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
-                  <Format subtype="1" type="0"/>
-                </Property>
-                <Property name="horizontalAlignment" type="int" value="4"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JFormattedTextField" name="jFormTxtMorgulisLevel">
@@ -513,8 +516,12 @@
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="btnGroupBuild"/>
                 </Property>
+                <Property name="selected" type="boolean" value="true"/>
                 <Property name="text" type="java.lang.String" value="Idle"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="changeAncientsBuildActionEvent"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="jRadBtnActive">
               <Properties>
@@ -523,6 +530,28 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Active"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="changeAncientsBuildActionEvent"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="jBtnSavePreferences">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Save preferences"/>
+                <Property name="toolTipText" type="java.lang.String" value="Saves the current state of Morgulis/Unspent HS, build type, game state (early, mid and late) and optimal zone"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="savePreferencesActionEvent"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JSpinner" name="jSpinnerArgaivLvl">
+              <Properties>
+                <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+                  <SpinnerModel initial="1" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jSpinnerArgaivLvl.addChangeListener(new ChangeListener(){&#xa;@Override&#xa;public void stateChanged(ChangeEvent e){&#xa;    jSpinnerSiyaLvl.setValue(jSpinnerArgaivLvl.getValue());&#xa;    showAncientLevels();&#xa;}&#xa;});"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>
